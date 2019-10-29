@@ -959,7 +959,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
 <li>Lightweight：不能引入过多的参数和计算量，需要保持轻量化。</li>
 </ul>
 <h1 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/3.png" alt=""><br>CARAFE 分为两个主要模块，分别是<strong>上采样核预测模块</strong>和<strong>特征重组模块</strong>。假设上采样倍率为 [公式] ，给定一个形状为 [公式] 的输入特征图，首先利用上采样核预测模块预测上采样核，然后利用特征重组模块完成上采样，得到形状为 [公式] 的输出特征图。</p>
-<h2 id="上采样核预测模块"><a href="#上采样核预测模块" class="headerlink" title="上采样核预测模块"></a>上采样核预测模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/4.png" alt=""></p>
+<h2 id="上采样核预测模块"><a href="#上采样核预测模块" class="headerlink" title="上采样核预测模块"></a>上采样核预测模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blpinog_files/img/Paper-Reading-2/4.png" alt=""></p>
 <ol>
 <li>特征图通道压缩</li>
 </ol>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-10-29T08:03:58.892Z</updated>
+  <updated>2019-11-10T06:13:24.082Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -15,6 +15,126 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ICCV Best Paper SinGAN----Paper Reading</title>
+    <link href="https://sunhwee.com/posts/87c85644.html"/>
+    <id>https://sunhwee.com/posts/87c85644.html</id>
+    <published>2019-11-08T14:35:36.000Z</published>
+    <updated>2019-11-10T06:13:24.082Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Reaserch" scheme="https://sunhwee.com/categories/Reaserch/"/>
+    
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Paper Reading" scheme="https://sunhwee.com/tags/Paper-Reading/"/>
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tensorflow 学习笔记</title>
+    <link href="https://sunhwee.com/posts/5c170cf3.html"/>
+    <id>https://sunhwee.com/posts/5c170cf3.html</id>
+    <published>2019-11-04T14:35:36.000Z</published>
+    <updated>2019-11-09T12:39:03.024Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Tensorflow-学习笔记&quot;&gt;&lt;a href=&quot;#Tensorflow-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Tensorflow 学习笔记&quot;&gt;&lt;/a&gt;Tensorflow 学习笔记&lt;/h1&gt;&lt;h2 id=&quot;环境配置&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Research" scheme="https://sunhwee.com/categories/Research/"/>
+    
+    
+      <category term="Tensorflow" scheme="https://sunhwee.com/tags/Tensorflow/"/>
+    
+      <category term="deeplearning" scheme="https://sunhwee.com/tags/deeplearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉研究生建议</title>
+    <link href="https://sunhwee.com/posts/b8c41141.html"/>
+    <id>https://sunhwee.com/posts/b8c41141.html</id>
+    <published>2019-10-31T14:35:36.000Z</published>
+    <updated>2019-11-01T08:41:23.755Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;听听前辈们的建议&quot;&gt;&lt;a href=&quot;#听听前辈们的建议&quot; class=&quot;headerlink&quot; title=&quot;听听前辈们的建议&quot;&gt;&lt;/a&gt;听听前辈们的建议&lt;/h1&gt;&lt;p&gt;在知乎看到几个回答还不错  这里记录一下  留作后面不断查看回顾&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="Research" scheme="https://sunhwee.com/categories/Research/"/>
+    
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+    
+      <category term="Research" scheme="https://sunhwee.com/tags/Research/"/>
+    
+      <category term="advice" scheme="https://sunhwee.com/tags/advice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉研究生建议</title>
+    <link href="https://sunhwee.com/posts/b8c41141.html"/>
+    <id>https://sunhwee.com/posts/b8c41141.html</id>
+    <published>2019-10-31T14:35:36.000Z</published>
+    <updated>2019-10-31T15:35:27.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;听听前辈们的建议&quot;&gt;&lt;a href=&quot;#听听前辈们的建议&quot; class=&quot;headerlink&quot; title=&quot;听听前辈们的建议&quot;&gt;&lt;/a&gt;听听前辈们的建议&lt;/h1&gt;&lt;p&gt;在知乎看到几个回答还不错  这里记录一下  留作后面不断查看回顾&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="Research" scheme="https://sunhwee.com/categories/Research/"/>
+    
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+    
+      <category term="Research" scheme="https://sunhwee.com/tags/Research/"/>
+    
+      <category term="advice" scheme="https://sunhwee.com/tags/advice/"/>
+    
+  </entry>
   
   <entry>
     <title>CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading</title>
@@ -79,7 +199,7 @@
     <link href="https://sunhwee.com/posts/62764ecd.html"/>
     <id>https://sunhwee.com/posts/62764ecd.html</id>
     <published>2019-10-18T14:35:36.000Z</published>
-    <updated>2019-10-29T07:45:57.619Z</updated>
+    <updated>2019-11-15T05:18:56.749Z</updated>
     
     <summary type="html">
     
@@ -471,130 +591,6 @@
       <category term="Hexo" scheme="https://sunhwee.com/tags/Hexo/"/>
     
       <category term="Github" scheme="https://sunhwee.com/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>提效工具推荐（Effective-Tools）</title>
-    <link href="https://sunhwee.com/posts/2d612faf.html"/>
-    <id>https://sunhwee.com/posts/2d612faf.html</id>
-    <published>2019-08-23T13:33:49.000Z</published>
-    <updated>2019-10-19T15:05:12.824Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="提效工具" scheme="https://sunhwee.com/categories/%E6%8F%90%E6%95%88%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Effective" scheme="https://sunhwee.com/tags/Effective/"/>
-    
-      <category term="Tools" scheme="https://sunhwee.com/tags/Tools/"/>
-    
-      <category term="提效工具" scheme="https://sunhwee.com/tags/%E6%8F%90%E6%95%88%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PicGo+GitHub：你的最佳免费图床选择！</title>
-    <link href="https://sunhwee.com/posts/1788dd4a.html"/>
-    <id>https://sunhwee.com/posts/1788dd4a.html</id>
-    <published>2019-08-18T12:54:45.000Z</published>
-    <updated>2019-10-19T15:05:12.824Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;PicGo介绍&quot;&gt;&lt;a href=&quot;#PicGo介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="文章写作技巧" scheme="https://sunhwee.com/categories/%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/"/>
-    
-    
-      <category term="Github" scheme="https://sunhwee.com/tags/Github/"/>
-    
-      <category term="PicGo" scheme="https://sunhwee.com/tags/PicGo/"/>
-    
-      <category term="图床" scheme="https://sunhwee.com/tags/%E5%9B%BE%E5%BA%8A/"/>
-    
-      <category term="Tutorial" scheme="https://sunhwee.com/tags/Tutorial/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown Emoji表情语法速查表</title>
-    <link href="https://sunhwee.com/posts/a927e90e.html"/>
-    <id>https://sunhwee.com/posts/a927e90e.html</id>
-    <published>2019-08-16T10:50:36.000Z</published>
-    <updated>2019-10-29T09:05:40.256Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;[这也是一测试]： &lt;span class=&quot;github-emoji&quot; style=&quot;color: transparent;background:no-repeat
-        
-      
-    
-    </summary>
-    
-      <category term="文章写作技巧" scheme="https://sunhwee.com/categories/%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/"/>
-    
-    
-      <category term="Markdown" scheme="https://sunhwee.com/tags/Markdown/"/>
-    
-      <category term="Emoji" scheme="https://sunhwee.com/tags/Emoji/"/>
-    
-      <category term="表情包" scheme="https://sunhwee.com/tags/%E8%A1%A8%E6%83%85%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python GUI之tkinter窗口视窗教程大集合（看这篇就够了）</title>
-    <link href="https://sunhwee.com/posts/80fa3a85.html"/>
-    <id>https://sunhwee.com/posts/80fa3a85.html</id>
-    <published>2019-08-16T07:36:09.000Z</published>
-    <updated>2019-10-29T09:04:15.511Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Python教程" scheme="https://sunhwee.com/categories/Python%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Tutorial" scheme="https://sunhwee.com/tags/Tutorial/"/>
-    
-      <category term="Python" scheme="https://sunhwee.com/tags/Python/"/>
-    
-      <category term="GUI" scheme="https://sunhwee.com/tags/GUI/"/>
-    
-      <category term="TKinter" scheme="https://sunhwee.com/tags/TKinter/"/>
     
   </entry>
   

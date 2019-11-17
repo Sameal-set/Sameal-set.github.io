@@ -896,7 +896,7 @@ WPS Office 2019
                 
                     <div class="post-date info-break-policy">
                         <i class="fa fa-calendar-minus-o fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2019-10-29
+                        2019-11-15
                     </div>
                 
 
@@ -911,14 +911,14 @@ WPS Office 2019
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>字数:&nbsp;&nbsp;
-                        1.8k
+                        3.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>时长:&nbsp;&nbsp;
-                        7 分钟
+                        14 分钟
                     </div>
                     
                 
@@ -1121,6 +1121,261 @@ https://github.com/askme765cs/Wine-QQ-TIM</code></pre><ol start="11">
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> add-apt-repository ppa:danielrichter2007/grub-customizer
 <span class="token function">sudo</span> <span class="token function">apt-get</span> update
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> grub-customizer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="修改-root-密码-获取-root-用户："><a href="#修改-root-密码-获取-root-用户：" class="headerlink" title="修改 root 密码, 获取 root 用户："></a>修改 root 密码, 获取 root 用户：</h1><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">passwd</span>    <span class="token comment" spellcheck="true"># 输入两次新密码</span>
+<span class="token function">su</span> root                 <span class="token comment" spellcheck="true"># 登陆 root账户</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="Ubuntu-更新内核"><a href="#Ubuntu-更新内核" class="headerlink" title="Ubuntu 更新内核"></a>Ubuntu 更新内核</h1><p>ubuntu18.04操作系统版本先已支持在线的内核版本升级，到目前为止18.04发布版已经拥有三个小版本了1,2,3。 其中18.04.01和18.04.03版本，安装好之后默认的是4.15内核版本，但是默认支持在线安装4.18和5.0.0内核版本。</p>
+<p>具体升级步骤如下：</p>
+<p>升级前备份当前系统镜像<br>确认外网可用，同时配置好任意一个国内源（这里用的是网易源）<br>获取5.0.0内核版本 </p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt list <span class="token operator">|</span> <span class="token function">grep</span> linux-generic*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>能够获取到5.0.0版本之后直接安装</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> linux-generic-hwe-18.04-edge<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装完成再重启一下设备新内核即可生效</p>
+<p>重启后再次终端输入下面命令:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt list <span class="token operator">|</span> <span class="token function">grep</span> linux-generic*
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> linux-generic-hwe-18.04-edge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>会提示如下</p>
+<pre class="line-numbers language-bash"><code class="language-bash">正在读取软件包列表<span class="token punctuation">..</span>. 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息<span class="token punctuation">..</span>. 完成       
+linux-generic-hwe-18.04-edge 已经是最新版 <span class="token punctuation">(</span>5.3.0.19.85<span class="token punctuation">)</span>。
+下列软件包是自动安装的并且现在不需要了：
+  linux-headers-4.15.0-65 linux-headers-4.15.0-65-generic
+  linux-image-4.15.0-65-generic linux-modules-4.15.0-65-generic
+  linux-modules-extra-4.15.0-65-generic
+使用<span class="token string">'sudo apt autoremove'</span>来卸载它<span class="token punctuation">(</span>它们<span class="token punctuation">)</span>。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>按提示,用 sudo apt autoremove 就可以自动移除不需要的内核文件.</p>
+<h1 id="Ubuntu18-04中使用texlive-texstudio搭建Latex环境"><a href="#Ubuntu18-04中使用texlive-texstudio搭建Latex环境" class="headerlink" title="Ubuntu18.04中使用texlive+texstudio搭建Latex环境"></a>Ubuntu18.04中使用texlive+texstudio搭建Latex环境</h1><h2 id="1-安装texlive"><a href="#1-安装texlive" class="headerlink" title="1.安装texlive"></a>1.安装texlive</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> texlive<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-安装中文字体包"><a href="#2-安装中文字体包" class="headerlink" title="2.安装中文字体包"></a>2.安装中文字体包</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> latex-cjk-all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-安装texstudio"><a href="#3-安装texstudio" class="headerlink" title="3.安装texstudio"></a>3.安装texstudio</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> texstudio<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="解决texstudio使用过程中遇到的问题："><a href="#解决texstudio使用过程中遇到的问题：" class="headerlink" title="解决texstudio使用过程中遇到的问题："></a>解决texstudio使用过程中遇到的问题：</h2><h3 id="1-GB-cpx乱码问题"><a href="#1-GB-cpx乱码问题" class="headerlink" title="1.GB.cpx乱码问题"></a>1.GB.cpx乱码问题</h3><p>在/usr/share/texmf/tex/latex/CJK/GB/下查找到GB.cpx文件并且使用一下代码替换：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">% This is the <span class="token function">file</span> GB.cap of the CJK package
+%   <span class="token keyword">for</span> using Asian logographs <span class="token punctuation">(</span>Chinese/Japanese/Korean<span class="token punctuation">)</span> with LaTeX2e
+%
+% created by aloft <span class="token operator">&lt;</span>aloft@ctex.org<span class="token operator">></span> <span class="token keyword">for</span> Standard LaTeX document class.
+%
+% Version 4.5.2 <span class="token punctuation">(</span>18-May-2003<span class="token punctuation">)</span>
+%
+% <span class="token variable">$Id</span><span class="token keyword">:</span> GB.cpx,v 1.7 2003/05/20 15:51:14 aloft Exp $
+%
+
+
+\def\fileversion<span class="token punctuation">{</span>4.5.2<span class="token punctuation">}</span>
+\def\filedate<span class="token punctuation">{</span>2003/05/18<span class="token punctuation">}</span>
+\ProvidesFile<span class="token punctuation">{</span>GB.cap<span class="token punctuation">}</span><span class="token punctuation">[</span>\filedate\space\fileversion
+ <span class="token keyword">for</span> Standard LaTeX document class<span class="token punctuation">]</span>
+
+
+% Chinese captions
+%
+% character set: GB 2312-80
+% encoding: EUC
+
+\renewcommand\contentsname<span class="token punctuation">{</span>目录<span class="token punctuation">}</span>
+\renewcommand\listfigurename<span class="token punctuation">{</span>插图<span class="token punctuation">}</span>
+\renewcommand\listtablename<span class="token punctuation">{</span>表格<span class="token punctuation">}</span>
+
+\@ifundefined<span class="token punctuation">{</span>chapter<span class="token punctuation">}</span>
+  <span class="token punctuation">{</span>\renewcommand\refname<span class="token punctuation">{</span>参考文献<span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token punctuation">{</span>\renewcommand\bibname<span class="token punctuation">{</span>参考文献<span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+\renewcommand\indexname<span class="token punctuation">{</span>索引<span class="token punctuation">}</span>
+
+\renewcommand\figurename<span class="token punctuation">{</span>Fig<span class="token punctuation">}</span>
+
+\newcommand\codename<span class="token punctuation">{</span>代码<span class="token punctuation">}</span>
+
+\renewcommand\tablename<span class="token punctuation">{</span>表<span class="token punctuation">}</span>
+
+\newcommand\CJKprepartname<span class="token punctuation">{</span>第<span class="token punctuation">}</span>
+\newcommand\CJKpartname<span class="token punctuation">{</span>部分<span class="token punctuation">}</span>
+\newcommand\CJKthepart<span class="token punctuation">{</span>\CJKnumber<span class="token punctuation">{</span>\@arabic\c@part<span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+\@ifundefined<span class="token punctuation">{</span>chapter<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">{</span>
+  \newcommand\CJKprechaptername<span class="token punctuation">{</span>第<span class="token punctuation">}</span>
+  \newcommand\CJKchaptername<span class="token punctuation">{</span>章<span class="token punctuation">}</span>
+  \newcommand\CJKthechapter<span class="token punctuation">{</span>\CJKnumber<span class="token punctuation">{</span>\@arabic\c@chapter<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+\renewcommand\appendixname<span class="token punctuation">{</span>附录~\@Alph\c@chapter<span class="token punctuation">}</span>
+
+\@ifundefined<span class="token punctuation">{</span>mainmatter<span class="token punctuation">}</span>
+  <span class="token punctuation">{</span>\renewcommand\abstractname<span class="token punctuation">{</span>摘要<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+% \renewcommand\ccname<span class="token punctuation">{</span><span class="token punctuation">}</span>                     %   ?
+% \renewcommand\enclname<span class="token punctuation">{</span>附件<span class="token punctuation">}</span>
+% \newcommand\prepagename<span class="token punctuation">{</span><span class="token punctuation">}</span>                  %   ?
+% \newcommand\postpagename<span class="token punctuation">{</span><span class="token punctuation">}</span>                 %   ?
+% \renewcommand\headtoname<span class="token punctuation">{</span><span class="token punctuation">}</span>                 %   ?
+% \renewcommand\seename<span class="token punctuation">{</span><span class="token punctuation">}</span>                    %   ?
+
+\let\CJK@todaysave<span class="token operator">=</span>\today
+\def\CJK@todaysmall<span class="token punctuation">{</span>~\the\year~年~\the\month~月~\the\day~日<span class="token punctuation">}</span>
+\def\CJK@todaybig<span class="token punctuation">{</span>\CJKdigits<span class="token punctuation">{</span>\the\year<span class="token punctuation">}</span>年\CJKnumber<span class="token punctuation">{</span>\the\month<span class="token punctuation">}</span>月\CJKnumber<span class="token punctuation">{</span>\the\day<span class="token punctuation">}</span>日<span class="token punctuation">}</span>
+\def\CJK@today<span class="token punctuation">{</span>\CJK@todaysmall<span class="token punctuation">}</span>
+\renewcommand\today<span class="token punctuation">{</span>\CJK@today<span class="token punctuation">}</span>
+\newcommand\CJKtoday<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">{</span>%
+  \ifcase<span class="token comment" spellcheck="true">#1\def\CJK@today{\CJK@todaysave}</span>
+  \or\def\CJK@today<span class="token punctuation">{</span>\CJK@todaysmall<span class="token punctuation">}</span>
+  \or\def\CJK@today<span class="token punctuation">{</span>\CJK@todaybig<span class="token punctuation">}</span>
+  \fi<span class="token punctuation">}</span>
+
+%
+% modify the definitions of Standard LaTeX document class
+%
+\@ifundefined<span class="token punctuation">{</span>chapter<span class="token punctuation">}</span><span class="token punctuation">{</span>
+  \def\@part<span class="token punctuation">[</span><span class="token comment" spellcheck="true">#1]#2{%</span>
+      \ifnum \c@secnumdepth <span class="token operator">></span>\m@ne
+        \refstepcounter<span class="token punctuation">{</span>part<span class="token punctuation">}</span>%
+%       \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>\thepart\hspace<span class="token punctuation">{</span>1em<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+        \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>\CJKprepartname\expandafter\noexpand\CJKthepart\CJKpartname\hspace<span class="token punctuation">{</span>1em<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+      \else
+        \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>#1<span class="token punctuation">}</span>%
+      \fi
+      <span class="token punctuation">{</span>\parindent \z@ \raggedright
+       \interlinepenalty \@M
+       \normalfont
+       \ifnum \c@secnumdepth <span class="token operator">></span>\m@ne
+%        \Large\bfseries \partname\nobreakspace\thepart
+         \Large\bfseries \CJKprepartname\CJKthepart\CJKpartname
+         \par\nobreak
+       \fi
+       \huge \bfseries <span class="token comment" spellcheck="true">#2%</span>
+       \markboth<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">}</span>\par<span class="token punctuation">}</span>%
+      \nobreak
+      \vskip 3ex
+      \@afterheading<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">{</span>
+  \def\@part<span class="token punctuation">[</span><span class="token comment" spellcheck="true">#1]#2{%</span>
+      \ifnum \c@secnumdepth <span class="token operator">></span>-2\relax
+        \refstepcounter<span class="token punctuation">{</span>part<span class="token punctuation">}</span>%
+%       \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>\thepart\hspace<span class="token punctuation">{</span>1em<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+        \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>\CJKprepartname\expandafter\noexpand\CJKthepart\CJKpartname\hspace<span class="token punctuation">{</span>1em<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+      \else
+        \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>part<span class="token punctuation">}</span><span class="token punctuation">{</span>#1<span class="token punctuation">}</span>%
+      \fi
+      \markboth<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token punctuation">}</span>%
+      <span class="token punctuation">{</span>\centering
+       \interlinepenalty \@M
+       \normalfont
+       \ifnum \c@secnumdepth <span class="token operator">></span>-2\relax
+%        \huge\bfseries \partname\nobreakspace\thepart
+         \huge\bfseries \CJKprepartname\CJKthepart\CJKpartname
+         \par
+         \vskip 20\p@
+       \fi
+       \Huge \bfseries <span class="token comment" spellcheck="true">#2\par}%</span>
+      \@endpart<span class="token punctuation">}</span>
+  \if@twoside
+    \def\chaptermark<span class="token comment" spellcheck="true">#1{%</span>
+      \markboth <span class="token punctuation">{</span>\MakeUppercase<span class="token punctuation">{</span>%
+        \ifnum \c@secnumdepth <span class="token operator">></span>\m@ne
+          \if@mainmatter
+%           \@chapapp\ \thechapter. \ %
+            \CJKprechaptername\CJKthechapter\CJKchaptername \ %
+          \fi
+        \fi
+        <span class="token comment" spellcheck="true">#1}}{}}%</span>
+    \def\sectionmark<span class="token comment" spellcheck="true">#1{%</span>
+      \markright <span class="token punctuation">{</span>\MakeUppercase<span class="token punctuation">{</span>%
+        \ifnum \c@secnumdepth <span class="token operator">></span>\z@
+%         \thesection. \ %
+          \thesection \ %
+        \fi
+        <span class="token comment" spellcheck="true">#1}}}</span>
+  \else
+    \def\chaptermark<span class="token comment" spellcheck="true">#1{%</span>
+      \markright <span class="token punctuation">{</span>\MakeUppercase<span class="token punctuation">{</span>%
+        \ifnum \c@secnumdepth <span class="token operator">></span>\m@ne
+          \if@mainmatter
+%           \@chapapp\ \thechapter. \ %
+            \CJKprechaptername\CJKthechapter\CJKchaptername \ %
+          \fi
+        \fi
+        <span class="token comment" spellcheck="true">#1}}}</span>
+  \fi
+  \def\@chapter<span class="token punctuation">[</span><span class="token comment" spellcheck="true">#1]#2{\ifnum \c@secnumdepth >\m@ne</span>
+                         \if@mainmatter
+                           \refstepcounter<span class="token punctuation">{</span>chapter<span class="token punctuation">}</span>%
+%                          \typeout<span class="token punctuation">{</span>\@chapapp\space\thechapter.<span class="token punctuation">}</span>%
+                           \typeout<span class="token punctuation">{</span>\CJKprechaptername\CJKthechapter\CJKchaptername<span class="token punctuation">}</span>%
+                           \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>chapter<span class="token punctuation">}</span>%
+%                                    <span class="token punctuation">{</span>\protect\numberline<span class="token punctuation">{</span>\thechapter<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+                                     <span class="token punctuation">{</span>\protect\numberline<span class="token punctuation">{</span><span class="token punctuation">}</span>\CJKprechaptername%
+                                      \expandafter\noexpand\CJKthechapter\CJKchaptername\hspace<span class="token punctuation">{</span>0.8em<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#1}%</span>
+                         \else
+                           \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>chapter<span class="token punctuation">}</span><span class="token punctuation">{</span>#1<span class="token punctuation">}</span>%
+                         \fi
+                      \else
+                        \addcontentsline<span class="token punctuation">{</span>toc<span class="token punctuation">}</span><span class="token punctuation">{</span>chapter<span class="token punctuation">}</span><span class="token punctuation">{</span>#1<span class="token punctuation">}</span>%
+                      \fi
+                      \chaptermark<span class="token punctuation">{</span>#1<span class="token punctuation">}</span>%
+                      \addtocontents<span class="token punctuation">{</span>lof<span class="token punctuation">}</span><span class="token punctuation">{</span>\protect\addvspace<span class="token punctuation">{</span>10\p@<span class="token punctuation">}</span><span class="token punctuation">}</span>%
+                      \addtocontents<span class="token punctuation">{</span>lot<span class="token punctuation">}</span><span class="token punctuation">{</span>\protect\addvspace<span class="token punctuation">{</span>10\p@<span class="token punctuation">}</span><span class="token punctuation">}</span>%
+                      \if@twocolumn
+                        \@topnewpage<span class="token punctuation">[</span>\@makechapterhead<span class="token punctuation">{</span>#2<span class="token punctuation">}</span><span class="token punctuation">]</span>%
+                      \else
+                        \@makechapterhead<span class="token punctuation">{</span>#2<span class="token punctuation">}</span>%
+                        \@afterheading
+                      \fi<span class="token punctuation">}</span>
+  \def\@makechapterhead<span class="token comment" spellcheck="true">#1{%</span>
+    \vspace*<span class="token punctuation">{</span>50\p@<span class="token punctuation">}</span>%
+    <span class="token punctuation">{</span>\parindent \z@ \raggedright \normalfont
+      \ifnum \c@secnumdepth <span class="token operator">></span>\m@ne
+        \if@mainmatter
+%         \huge\bfseries \@chapapp\space \thechapter
+          \huge\bfseries \CJKprechaptername\CJKthechapter\CJKchaptername
+          \par\nobreak
+          \vskip 20\p@
+        \fi
+      \fi
+      \interlinepenalty\@M
+      \Huge \bfseries <span class="token comment" spellcheck="true">#1\par\nobreak</span>
+      \vskip 40\p@
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  \renewcommand*\l@chapter<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">{</span>%
+    \ifnum \c@tocdepth <span class="token operator">></span>\m@ne
+      \addpenalty<span class="token punctuation">{</span>-\@highpenalty<span class="token punctuation">}</span>%
+      \vskip 1.0em \@plus\p@
+%     \setlength\@tempdima<span class="token punctuation">{</span>1.5em<span class="token punctuation">}</span>%
+      \setlength\@tempdima<span class="token punctuation">{</span>0em<span class="token punctuation">}</span>%
+      \begingroup
+        \parindent \z@ \rightskip \@pnumwidth
+        \parfillskip -\@pnumwidth
+        \leavevmode \bfseries
+        \advance\leftskip\@tempdima
+        \hskip -\leftskip
+        <span class="token comment" spellcheck="true">#1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par</span>
+        \penalty\@highpenalty
+      \endgroup
+    \fi<span class="token punctuation">}</span>
+\let\@appendix\appendix
+\renewcommand\appendix<span class="token punctuation">{</span>\@appendix%
+  \def\CJKprechaptername<span class="token punctuation">{</span>\relax<span class="token punctuation">}</span>%
+  \def\CJKthechapter<span class="token punctuation">{</span>\relax<span class="token punctuation">}</span>%
+  \def\CJKchaptername<span class="token punctuation">{</span>\appendixname<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  %end of \@ifundefined<span class="token punctuation">{</span>chapter<span class="token punctuation">}</span>
+
+\def\numberline<span class="token comment" spellcheck="true">#1{\ifdim\@tempdima>0pt% </span>
+  \settowidth\@tempdimb<span class="token punctuation">{</span>#1\space<span class="token punctuation">}</span>% 
+  \ifdim\@tempdima<span class="token operator">&lt;</span>\@tempdimb% 
+    \@tempdima<span class="token operator">=</span>\@tempdimb% 
+  \fi% 
+  \hb@xt@\@tempdima<span class="token punctuation">{</span>#1\hfil<span class="token punctuation">}</span>% 
+  \fi<span class="token punctuation">}</span> 
+
+\endinput<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-编译后Pdf中文不显示问题"><a href="#2-编译后Pdf中文不显示问题" class="headerlink" title="2.编译后Pdf中文不显示问题"></a>2.编译后Pdf中文不显示问题</h3><p>当使用 CJK 中文包时，在 Texstudio 配置中使用 pdflatex 编译器而不是 xelatex 编译器。</p>
+<p>如果使用ctex中文包时可以使用 xelatex 编译器。</p>
+<hr>
+<h1 id="Ubuntu16-04下安装-FFmpeg"><a href="#Ubuntu16-04下安装-FFmpeg" class="headerlink" title="Ubuntu16.04下安装 FFmpeg"></a>Ubuntu16.04下安装 FFmpeg</h1><p>在百度上看到许多安装过程特别麻烦的，还要手动下载安装。其实只需要三条命令。</p>
+<p>第一步：添加源</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> add-apt-repository ppa:djcj/hybrid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>第二步：更新源</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>第三步：下载安装</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ffmpeg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如上，就安装好了。</p>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2019,7 +2274,7 @@ https://github.com/askme765cs/Wine-QQ-TIM</code></pre><ol start="11">
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">51k</span> 字
+                <span class="white-color">67.6k</span> 字
             
 
             

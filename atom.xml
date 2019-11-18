@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-11-18T05:29:49.109Z</updated>
+  <updated>2019-11-18T06:03:10.396Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sunhwee.com/posts/600197bc.html"/>
     <id>https://sunhwee.com/posts/600197bc.html</id>
     <published>2019-11-18T05:39:26.000Z</published>
-    <updated>2019-11-18T05:29:49.109Z</updated>
+    <updated>2019-11-18T06:03:10.396Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Debug" scheme="https://sunhwee.com/tags/Debug/"/>
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -109,7 +109,7 @@
     <link href="https://sunhwee.com/posts/b8c41141.html"/>
     <id>https://sunhwee.com/posts/b8c41141.html</id>
     <published>2019-10-31T14:35:36.000Z</published>
-    <updated>2019-11-17T13:55:05.284Z</updated>
+    <updated>2019-11-17T13:55:05.288Z</updated>
     
     <summary type="html">
     
@@ -140,7 +140,7 @@
     <link href="https://sunhwee.com/posts/b8c41141.html"/>
     <id>https://sunhwee.com/posts/b8c41141.html</id>
     <published>2019-10-31T14:35:36.000Z</published>
-    <updated>2019-11-17T13:55:05.288Z</updated>
+    <updated>2019-11-17T13:55:05.284Z</updated>
     
     <summary type="html">
     
@@ -333,9 +333,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="Conda" scheme="https://sunhwee.com/tags/Conda/"/>
-    
       <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Conda" scheme="https://sunhwee.com/tags/Conda/"/>
     
   </entry>
   

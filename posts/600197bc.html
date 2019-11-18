@@ -4,10 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading, UESTC CV DeepLearning MachineLearning 洪卫 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="keywords" content="深度学习 Debug 技巧, UESTC CV DeepLearning MachineLearning 洪卫 sunhw Hongwei 计算机视觉 深度学习">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="前言这篇论文CARAFE: Content-Aware ReAssembly of FEatures被 ICCV 2019 接收为 oral presentation。它致力于解决一些通用模块和算子的问题。上采样操作是各种网络结构里广泛使用">
+    <meta name="description" content="前言本笔记是对 keynote“Troubleshooting Deep Neural Networks”的总结。
+keynote来源：
+http://josh-tobin.com/troubleshooting-deep-neural-n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading | 洪卫の博客</title>
+    <title>深度学习 Debug 技巧 | 洪卫の博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -740,13 +742,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading
+                        深度学习 Debug 技巧
                     </div>
                 </div>
             </div>
@@ -857,16 +859,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/Deep-Learning/" target="_blank">
+                                <span class="chip bg-color">Deep Learning</span>
+                            </a>
+                        
                             <a href="/tags/深度学习/" target="_blank">
                                 <span class="chip bg-color">深度学习</span>
                             </a>
                         
-                            <a href="/tags/Paper-Reading/" target="_blank">
-                                <span class="chip bg-color">Paper Reading</span>
-                            </a>
-                        
-                            <a href="/tags/CV/" target="_blank">
-                                <span class="chip bg-color">CV</span>
+                            <a href="/tags/Debug/" target="_blank">
+                                <span class="chip bg-color">Debug</span>
                             </a>
                         
                     </div>
@@ -877,8 +879,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Reaserch/" class="post-category" target="_blank">
-                                Reaserch
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                深度学习
                             </a>
                         
                     </div>
@@ -889,14 +891,9 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-25
+                    2019-11-18
                 </div>
 
-                
-                    <div class="post-date info-break-policy">
-                        <i class="fa fa-calendar-minus-o fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2019-10-29
-                    </div>
                 
 
                 <div class="post-author info-break-policy">
@@ -910,14 +907,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>字数:&nbsp;&nbsp;
-                        1.8k
+                        1.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>时长:&nbsp;&nbsp;
-                        6 分钟
+                        5 分钟
                     </div>
                     
                 
@@ -934,57 +931,181 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇论文<a href="https://arxiv.org/abs/1905.02188" target="_blank" rel="noopener">CARAFE: Content-Aware ReAssembly of FEatures</a>被 ICCV 2019 接收为 oral presentation。它致力于解决一些通用模块和算子的问题。<code>上采样操作</code>是各种网络结构里广泛使用的运算之一，这篇文章提出了一个轻量级的通用上采样算子 <code>CARAFE</code>（音[kə’ræf]），相对最近邻和双线性等上采样算子，在不同任务中都取得了显著的提升，同时只引入很少的参数量和计算代价。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/1.png" alt=""></h2><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p><code>上采样操作</code>可以表示为每个位置的上采样核和输入特征图中对应邻域的像素做点积，我们称之为<code>特征重组</code>。论文提出的上采样操作 CARAFE 在重组时可以有<code>较大的感受野</code>，会根据输入<code>特征语义信息</code>来指导重组过程，同时整个算子比较<code>轻量级</code>。具体来说，文章首先利用输入特征图来<strong>预测</strong>上采样核，<strong>每个位置的上采样核是不同的</strong>，然后基于预测的上采样核来进行特征重组。在不同的任务中，CARAFE 都取得了明显的提升，同时仅带来很小的额外参数和计算量。</p>
-<p>上采样的表示</p>
-<p>将特征图的上采样运算看做是特征重组的过程。对于输出特征图中的每个像素点 L’，我们都可以找到它在输入特征图中的对应位置 L，L’ 这个点的值可以表示成以输入特征图中以 L 为中心的一个邻域内的像素和一个上采样核的点积（加权和）。以双线性上采样为例，输出特征图中每个像素可以看作是一个 2x2 的上采样核和输入特征图中一个 2x2 的邻域的点积。在下图中，上采样核的 4 个数值均为 0.5。</p>
-<p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/2.gif" alt=""></p>
-<pre class="line-numbers language-yml"><code class="language-yml">value 是输入的特征图： 
-     将这个特征图进行上采样，格式是[n,h,w,c]，n是你这一个batch的图片数量， 
-     h和w是特征图的宽和高，c是特征图的数量；
-
-filter是卷积核的大小： 
-       四维的[h,w,in_channel,out_channel]，h和w是卷积核的大小， 
-       in_channel是输入特征图的数量，out_channel是输出特征图的数量。
-
-output_shape： 是要上采样得到的特征图的大小，格式与value一致。
-
-strides是步长： 四维格式，分别对应value四个维度的步长。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>最近邻或者双线性上采样: 仅通过<code>像素点的空间位置</code>来决定上采样核，并没有利用到特征图的语义信息，可以看作是一种“均匀”的上采样，而且<code>感知域</code>通常都很小（最近邻 1x1，双线性 2x2）。<br>Deconvolution(反卷积)算子的上采样核:  并不是通过像素间的距离计算，而是通过网络学出来的，但对于特征图每个位置都是应用相同的上采样核，不能捕捉到特征图内容的信息，另外引入了大量参数和计算量，尤其是当上采样核尺寸较大的时候。<br>Dynamic filter:  对于特征图每个位置都会预测一组不同的上采样核，但是参数量和计算量更加爆炸，而且公认比较难学习。</p>
-<p>那么本文所希望的上采样算子应该具备以下几个特性:</p>
-<ul>
-<li>Large receptive field：需要具有较大的感受野，这样才能更好地利用周围的信息。</li>
-<li>Content-aware：上采样核应该和特征图的语义信息相关，基于输入内容进行上采样。</li>
-<li>Lightweight：不能引入过多的参数和计算量，需要保持轻量化。</li>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本笔记是对 keynote“Troubleshooting Deep Neural Networks”的总结。</p>
+<p>keynote来源：</p>
+<p><a href="http://josh-tobin.com/troubleshooting-deep-neural-networks" target="_blank" rel="noopener">http://josh-tobin.com/troubleshooting-deep-neural-networks</a></p>
+<h1 id="为什么需要讨论-DL-Troubleshooting？"><a href="#为什么需要讨论-DL-Troubleshooting？" class="headerlink" title="为什么需要讨论 DL Troubleshooting？"></a>为什么需要讨论 DL Troubleshooting？</h1><p>80%-90%时间用于debug和tune，10%-20%时间用于推导数学或者实现。</p>
+<h1 id="模型为什么会表现糟糕？"><a href="#模型为什么会表现糟糕？" class="headerlink" title="模型为什么会表现糟糕？"></a>模型为什么会表现糟糕？</h1><ul>
+<li><p>实现时的bug，很多深度学习bug不可见，比如模型label顺序错误</p>
+</li>
+<li><p>超参数选择，因为模型对超参数比较敏感</p>
+</li>
 </ul>
-<h1 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/3.png" alt=""><br>CARAFE 分为两个主要模块，分别是<strong>上采样核预测模块</strong>和<strong>特征重组模块</strong>。假设上采样倍率为 [公式] ，给定一个形状为 [公式] 的输入特征图，首先利用上采样核预测模块预测上采样核，然后利用特征重组模块完成上采样，得到形状为 [公式] 的输出特征图。</p>
-<h2 id="上采样核预测模块"><a href="#上采样核预测模块" class="headerlink" title="上采样核预测模块"></a>上采样核预测模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blpinog_files/img/Paper-Reading-2/4.png" alt=""></p>
-<ol>
-<li>特征图通道压缩</li>
-</ol>
-<p>对于形状为 [公式] 的输入特征图，我们首先用一个 [公式] 卷积将它的通道数压缩到 [公式] ，这一步的主要目的是减小后续步骤的计算量。</p>
-<ol start="2">
-<li>内容编码及上采样核预测</li>
-</ol>
-<p>假设上采样核尺寸为 [公式] （越大的上采样核意味着更大的感受野和更大的计算量），如果我们希望对输出特征图的每个位置使用不同的上采样核，那么我们需要预测的上采样核形状为 [公式] 。</p>
-<p>对于第一步中压缩后的输入特征图，我们利用一个 [公式] 的卷积层来预测上采样核，输入通道数为 [公式] ，输出通道数为 [公式] ，然后我们将通道维在空间维展开，得到形状为 [公式] 的上采样核。</p>
-<ol start="3">
-<li>上采样核归一化</li>
-</ol>
-<p>对第二步中得到的上采样核利用 softmax 进行归一化，使得卷积核权重和为 1。</p>
-<h2 id="特征重组模块"><a href="#特征重组模块" class="headerlink" title="特征重组模块"></a>特征重组模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/5.png" alt=""><br>对于输出特征图中的每个位置，我们将其映射回输入特征图，取出以之为中心的 [公式] 的区域，和预测出的该点的上采样核作点积，得到输出值。相同位置的不同通道共享同一个上采样核。</p>
-<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><p>论文将 FPN 中的上采样操作替换成 CARAFE，并可视化上采样的区域和权重。对于高层特征图中不同的点，我们展示在 CARAFE 多次上采样后的采样核权重较大的点，可以看到采样点会集中在物体区域而忽略背景区域，达到 content-aware 的效果。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/6.png" alt=""><br>以 Faster R-CNN w/ FPN 为例，本文对比了 CARAFE 和其他上采样算子的性能以及参数量和计算量。在性能明显优于其他算子的情况下，CARAFE 保持了轻量级的特性，参数量和计算量都较小。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/8.png" alt=""></p>
-<p>同事本文将 CARAFE 应用于不同的任务中，例如物体检测，语义分割，image inpainting ，都取得了不错的效果。</p>
-<h2 id="物体检测"><a href="#物体检测" class="headerlink" title="物体检测"></a>物体检测</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/9.png" alt=""><br>在物体检测任务上，对于 Faster R-CNN 和 Mask R-CNN，CARAFE 都取得了一个点以上的提升。</p>
-<h2 id="语义分割"><a href="#语义分割" class="headerlink" title="语义分割"></a>语义分割</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/7.png" alt=""><br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/10.png" alt=""><br>在语义分割任务中，我们将 UperNet（为啥用 UperNet，因为有好用的开源 code 啊）作为 baseline，用 CARAFE 替换其中的上采样操作，取得了显著的提升。</p>
-<h2 id="Image-inpainting"><a href="#Image-inpainting" class="headerlink" title="Image inpainting"></a>Image inpainting</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/11.png" alt=""><br>我们也尝试把 CARAFE 应用在 low-level 任务比如 image inpainting 中，同样取得了较大的提升，刷新了 SOTA。</p>
-<h2 id="etc"><a href="#etc" class="headerlink" title="etc."></a>etc.</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章提出的轻量级通用上采样算子:</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DDKSomS00N3kMPCnpRBEZGyYP2StpJhbLyKibo86MXM7ibdzmKtLFUphQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
 <ul>
-<li>Large receptive field</li>
-<li>Content-aware</li>
-<li>Lightweight</li>
+<li><p>数据/模型拟合<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DMjnF3kxXpNCcwyfYIAoP3dyjIGSrAErhDV5vY1WuzjDfKjHugJpzRQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+</li>
+<li><p>数据集创建，常见问题如下：</p>
+<ul>
+<li><p>没有足够数据</p>
+</li>
+<li><p>类别不平衡</p>
+</li>
+<li><p>噪声标签</p>
+</li>
+<li><p>训练和测试的分布不同</p>
+</li>
 </ul>
+</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DuW4RFbUtWKEE5DXoR7vFaNvCBTfD9UmzYRAJks1plwKNnDHFzgSBJA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h2 id="DL-Troubleshooting策略"><a href="#DL-Troubleshooting策略" class="headerlink" title="DL Troubleshooting策略"></a><strong>DL Troubleshooting策略</strong></h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DLcnTFt7ojvzJ9CdPUDr8bibpVyQHiarxYbdic64xIHPGibPctOqPl5sWfg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h2 id="Start-simple：尽可能使用最简单的模型和数据，比如在数据的一个子集上使用LeNet"><a href="#Start-simple：尽可能使用最简单的模型和数据，比如在数据的一个子集上使用LeNet" class="headerlink" title="Start simple：尽可能使用最简单的模型和数据，比如在数据的一个子集上使用LeNet"></a><strong>Start simple：尽可能使用最简单的模型和数据，比如在数据的一个子集上使用LeNet</strong></h2><ul>
+<li><p>选择简单结构<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DHgHy9wibFRrUNjPWeLn8BsaZzUPFKR0TR7lbBSEOicTJNIrJhVicMHSXA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+</li>
+<li><p>使用sensible配置<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DQcs4AIFuvyibxibB7Kiaz0oYh4CnLgtvMJbSyiaYj82w9FGGuiaONmdWLZg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+</li>
+<li><p>对输入归一化<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DG7qfOoZSMQU9BFibTqbThPcUUfM6x7WibczDttVTrueiconJ55yNt5dPg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+</li>
+<li><p>简化问题</p>
+<ul>
+<li><p>使用更小的训练数据</p>
+</li>
+<li><p>使用更小的图像尺寸</p>
+</li>
+<li><p>创建一个更简单的合成训练集<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DTHZZezQlZUsaicOkGCgvU6GGBVROaRexMk7CPhIntYtdQnMC9MGkOGQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Implement-amp-debug：使得模型在一个batch上过拟合或者复现已知结果"><a href="#Implement-amp-debug：使得模型在一个batch上过拟合或者复现已知结果" class="headerlink" title="Implement &amp; debug：使得模型在一个batch上过拟合或者复现已知结果"></a><strong>Implement &amp; debug：使得模型在一个batch上过拟合或者复现已知结果</strong></h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DwMLOu8Wiawlkt0YODibFQYmJHxzAQaUaXJsq9YVvytHBplDiaRwibaLB8Q/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h2 id="最常见的5种深度学习bug："><a href="#最常见的5种深度学习bug：" class="headerlink" title="最常见的5种深度学习bug："></a><strong>最常见的5种深度学习bug：</strong></h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DjknwicnibSMfZGYRRdNMZMQq8cMicGu6NcRIY1176CibSUbX5YARbIKiamg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DERAfH4gvmsnQknHFeAksyUzfKKG7ib0mBzobTffdtj4MEK8JUb1k2hg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h2 id="Get-your-model-to-run"><a href="#Get-your-model-to-run" class="headerlink" title="Get your model to run"></a><strong>Get your model to run</strong></h2><p>常见问题及解决方法：</p>
+<ul>
+<li>shape mismatch、casting issue等，可以在模型创建阶段使用调试器逐步调试，具体地，shape mismatch可能存在未定义形状、错误形状等问题，比如在错误维度求和、取平均等、忘记在卷积层后flatten张量等；casting issue中常见问题：没有将图像从uint8转换到float32等。<a href="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DBXpL9SKowfYx9toezmd84qKNt7NSTTgicuKtPptVcDA8MnEH9jAdK0A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1t" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DBXpL9SKowfYx9toezmd84qKNt7NSTTgicuKtPptVcDA8MnEH9jAdK0A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1t</a> of Memory，逐一去除内存密集型操作，具体地，常见问题如下：tensor过大（batch size过大或者太大的全连接层）、数据过多（将太大的数据集加载到内存中或为数据集创建分配了太大的缓冲区）、拷贝错误（由于在同一会话中创建多个模型而导致的内存泄漏、重复创建操作（例如，在一次又一次调用的函数中））</li>
+</ul>
+<h2 id="Overfit-a-single-batch"><a href="#Overfit-a-single-batch" class="headerlink" title="Overfit a single batch"></a><strong>Overfit a single batch</strong></h2><p>常见问题:</p>
+<ul>
+<li><p>error上升：损失函数的符号错误、学习率太高、softmax使用在错误维度</p>
+</li>
+<li><p>error爆炸：数值问题、学习率太低</p>
+</li>
+<li><p>error震荡：数据或者标签有误、学习率太低</p>
+</li>
+<li><p>error不动：学习率太低、梯度没有在整个模型传播、过分正则化、损失函数的输入错误、数据或者标签有误</p>
+</li>
+</ul>
+<h2 id="Compare-to-a-known-result"><a href="#Compare-to-a-known-result" class="headerlink" title="Compare to a known result"></a><strong>Compare to a known result</strong></h2><ul>
+<li><p>在相似数据集上评估官方提供的模型实现</p>
+</li>
+<li><p>在benchmark上评估官方提供的模型实现</p>
+</li>
+<li><p>非官方模型实现</p>
+</li>
+<li><p>参考文章结果（没有代码）</p>
+</li>
+<li><p>自己代码实现在benchmark上的结果</p>
+</li>
+<li><p>相似模型在相似数据集上的结果</p>
+</li>
+<li><p>非常简单的baseline，如线性回归</p>
+</li>
+</ul>
+<h2 id="Evaluate：使用bias-variance-decomposition决定下一步措施"><a href="#Evaluate：使用bias-variance-decomposition决定下一步措施" class="headerlink" title="Evaluate：使用bias-variance decomposition决定下一步措施"></a><strong>Evaluate：使用bias-variance decomposition决定下一步措施</strong></h2><p>Test error = irreducible error + bias + variance (+ distribution shift) + val overfitting (train, val, and test all come from the same distribution)</p>
+<p><strong>Improve model/data：如果欠拟合，使得模型更大；如果过拟合，增加数据或者添加正则化</strong></p>
+<h2 id="解决欠拟合（使用顺序由上到低下）："><a href="#解决欠拟合（使用顺序由上到低下）：" class="headerlink" title="解决欠拟合（使用顺序由上到低下）："></a><strong>解决欠拟合</strong>（使用顺序由上到低下）：</h2><ul>
+<li><p>使得模型变大，比如增加层数或者在每层中使用更多单元</p>
+</li>
+<li><p>减少正则化</p>
+</li>
+<li><p>错误分析</p>
+</li>
+<li><p>选择一个不同结构</p>
+</li>
+<li><p>调整超参数</p>
+</li>
+<li><p>增加特征</p>
+</li>
+</ul>
+<h2 id="解决过拟合（使用顺序由上到低下）："><a href="#解决过拟合（使用顺序由上到低下）：" class="headerlink" title="解决过拟合（使用顺序由上到低下）："></a><strong>解决过拟合</strong>（使用顺序由上到低下）：</h2><ul>
+<li><p>增加更多数据</p>
+</li>
+<li><p>增加归一化</p>
+</li>
+<li><p>数据增强</p>
+</li>
+<li><p>增加正则化（如dropout、L2、weight decay）</p>
+</li>
+<li><p>错误分析</p>
+</li>
+<li><p>使用一个不同结构</p>
+</li>
+<li><p>调整超参数</p>
+</li>
+<li><p>及时停止</p>
+</li>
+<li><p>去除特征</p>
+</li>
+<li><p>减少模型大小</p>
+</li>
+</ul>
+<h2 id="解决分布转换（distribution-shift）："><a href="#解决分布转换（distribution-shift）：" class="headerlink" title="解决分布转换（distribution shift）："></a><strong>解决分布转换</strong>（distribution shift）：</h2><ul>
+<li><p>分析测试-验证集错误 &amp; 收集更多训练数据</p>
+</li>
+<li><p>分析测验-验证集错误 &amp; 合成更多训练数据</p>
+</li>
+<li><p>使用领域适应改变训练和测试分布（领域适应，使用未标注数据或者有限的标注数据，将source上的训练结果泛化到target上）</p>
+</li>
+</ul>
+<h2 id="平衡数据集"><a href="#平衡数据集" class="headerlink" title="平衡数据集"></a><strong>平衡数据集</strong></h2><p>如果验证集上的结果好于测试结果，在验证集上过拟合。上述情况通常发生在小验证集上或者大规模超参数调整</p>
+<p><strong>Tune hype-parameters：由粗到细地随机搜索</strong></p>
+<h2 id="超参数优化面临如下问题："><a href="#超参数优化面临如下问题：" class="headerlink" title="超参数优化面临如下问题："></a><strong>超参数优化面临如下问题：</strong></h2><ul>
+<li><p>网络：多少层？如何参数初始化？卷积核大小？</p>
+</li>
+<li><p>优化器：batch size？学习率？beta1，beta 2？</p>
+</li>
+<li><p>正则化：？</p>
+</li>
+</ul>
+<h2 id="方法1：人工选择超参数"><a href="#方法1：人工选择超参数" class="headerlink" title="方法1：人工选择超参数"></a><strong>方法1：人工选择超参数</strong></h2><ul>
+<li><p>需要理解算法，训练/评估网络，猜测一个更好的超参数值/重新评估，可以和其他方法相结合。</p>
+</li>
+<li><p>优点：对于经验丰富的专家，消耗非常小的计算量得到好结果</p>
+</li>
+<li><p>缺点：需要对算法有很深的见解、非常耗时</p>
+</li>
+</ul>
+<h2 id="方法2：网格搜索"><a href="#方法2：网格搜索" class="headerlink" title="方法2：网格搜索"></a><strong>方法2：网格搜索</strong></h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/vI9nYe94fsFms0HmibFPHjZR48CSy3I8DBXpL9SKowfYx9toezmd84qKNt7NSTTgicuKtPptVcDA8MnEH9jAdK0A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<ul>
+<li><p>优点：实现非常简单、能够产生好结果</p>
+</li>
+<li><p>缺点：不高效、需要先验知识</p>
+</li>
+</ul>
+<h2 id="方法3：随机搜索"><a href="#方法3：随机搜索" class="headerlink" title="方法3：随机搜索"></a><strong>方法3：随机搜索</strong></h2><h2 id="方法4：由粗到细搜索"><a href="#方法4：由粗到细搜索" class="headerlink" title="方法4：由粗到细搜索"></a><strong>方法4：由粗到细搜索</strong></h2><ul>
+<li><p>先在大区域中找到使得结果比较好的子区域，重复上述过程</p>
+</li>
+<li><p>优点：可以缩小非常高性能的超参数、实际使用最多的方法</p>
+</li>
+<li><p>缺点：somewhat manual process</p>
+</li>
+</ul>
+<h2 id="方法5：贝叶斯方法"><a href="#方法5：贝叶斯方法" class="headerlink" title="方法5：贝叶斯方法"></a><strong>方法5：贝叶斯方法</strong></h2><ul>
+<li><p>从预先估计参数分布开始，包含超参数值与模型性能之间关系的概率模型，交替如下过程：使用最大化期望结果对应的超参数值进行训练，根据训练结果更新概率模型</p>
+</li>
+<li><p>优点：最高效的hand-off方法以选择超参数</p>
+</li>
+<li><p>缺点：从头开始难以实施、很难与现成的工具集成</p>
+</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
+<li><p>由于错误种类多，深度学习debugging困难</p>
+</li>
+<li><p>为了训练一个没有bug的深度学习模型，需要将构造模型看作一个迭代过程</p>
+</li>
+</ul>
+<p>原文链接：<a href="https://zhuanlan.zhihu.com/p/89566632" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/89566632</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1154,7 +1275,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunhwee.com/posts/87c85644.html">https://sunhwee.com/posts/87c85644.html</a>
+                    <a href="https://sunhwee.com/posts/600197bc.html">https://sunhwee.com/posts/600197bc.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1195,7 +1316,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                     </span>
                     <a href="https://sunhwee.com" class="b-link-green">洪卫の博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/87c85644.html" class="b-link-green">CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading</a>
+                    <a href="/posts/600197bc.html" class="b-link-green">深度学习 Debug 技巧</a>
                 </p>
             </div> -->
             <div class="tag_share" style="display: block;">
@@ -1203,16 +1324,16 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/Deep-Learning/">
+                                    <span class="chip bg-color">Deep Learning</span>
+                                </a>
+                            
                                 <a href="/tags/深度学习/">
                                     <span class="chip bg-color">深度学习</span>
                                 </a>
                             
-                                <a href="/tags/Paper-Reading/">
-                                    <span class="chip bg-color">Paper Reading</span>
-                                </a>
-                            
-                                <a href="/tags/CV/">
-                                    <span class="chip bg-color">CV</span>
+                                <a href="/tags/Debug/">
+                                    <span class="chip bg-color">Debug</span>
                                 </a>
                             
                         </div>
@@ -1265,7 +1386,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: 'posts/87c85644.html',
+        id: 'posts/600197bc.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1585,55 +1706,58 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/b8c41141.html">
+                <a href="/posts/600197bc.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="计算机视觉研究生建议">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="深度学习 Debug 技巧">
                         
-                        <span class="card-title">计算机视觉研究生建议</span>
+                        <span class="card-title">深度学习 Debug 技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            听听前辈们的建议在知乎看到几个回答还不错  这里记录一下  留作后面不断查看回顾
-一. 如何做好科研（1）无他，唯手熟尔，就是多读多写。论文就是越读越快的，我还是本科生的时候我导师告诉我刚入门时候要精读十篇好文章，我现在指导师弟师妹也是给他
+                            前言本笔记是对 keynote“Troubleshooting Deep Neural Networks”的总结。
+keynote来源：
+http://josh-tobin.com/troubleshooting-deep-neural-n
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Research/" class="post-category" target="_blank">
-                                    Research
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                    深度学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CV/" target="_blank">
-                        <span class="chip bg-color">CV</span>
+                    <a href="/tags/Deep-Learning/" target="_blank">
+                        <span class="chip bg-color">Deep Learning</span>
                     </a>
                     
-                    <a href="/tags/Research/" target="_blank">
-                        <span class="chip bg-color">Research</span>
+                    <a href="/tags/深度学习/" target="_blank">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
-                    <a href="/tags/advice/" target="_blank">
-                        <span class="chip bg-color">advice</span>
+                    <a href="/tags/Debug/" target="_blank">
+                        <span class="chip bg-color">Debug</span>
                     </a>
                     
                 </div>
@@ -1647,31 +1771,33 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6e2d0838.html">
+                <a href="/posts/87c85644.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="oh-my-zsh 配置">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ICCV Best Paper SinGAN----Paper Reading">
                         
-                        <span class="card-title">oh-my-zsh 配置</span>
+                        <span class="card-title">ICCV Best Paper SinGAN----Paper Reading</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Oh-My-Zsh的配置与使用什么是Shell？相对于内核来说，Shell是Linux/Unix的一个外壳，它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干
+                            前言
+这篇论文SinGAN: Learning a Generative Model from a Single Natural Image被 ICCV 2019 接收为 Best Paper。
+论文提出了一种可以从单幅自然图像学习的非条件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Ubuntu/" class="post-category" target="_blank">
-                                    Ubuntu
+                            <a href="/categories/Reaserch/" class="post-category" target="_blank">
+                                    Reaserch
                                 </a>
                             
                             
@@ -1681,12 +1807,16 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ubuntu/" target="_blank">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/深度学习/" target="_blank">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
-                    <a href="/tags/zsh/" target="_blank">
-                        <span class="chip bg-color">zsh</span>
+                    <a href="/tags/Paper-Reading/" target="_blank">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
+                    <a href="/tags/CV/" target="_blank">
+                        <span class="chip bg-color">CV</span>
                     </a>
                     
                 </div>

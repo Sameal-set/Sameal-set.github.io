@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>ICCV 2019 | VrR-VG：聚焦视觉相关关系</title>
+      <link href="/posts/c6520b04.html"/>
+      <url>/posts/c6520b04.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本笔记原文转载于PaperWeekly</p></blockquote><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/1.webp" alt=""></p><p>本文提出视觉相关的对象关系在语义理解上有更高的价值。在视觉关系学习表达中，我们需要关注于视觉相关关系，而避免对于视觉无关的信息学习。由于现有数据中存在大量的非视觉的先验信息，方法上很容易学到简单的位置关系或单一固定关系，而不具备进一步推测学习语义信息的能力。从而导致现有关系数据的表征并不能明显提升语义相关任务性能。</p><p>而本文提出明确了视觉关系学习中什么是值得学习的，什么是需要学习的。并且通过实验，也验证了所提出的视觉相关关系数据可以有效的提升特征的语义理解能力。</p><p>论文地址：<a href="https://arxiv.org/abs/1902.00313" target="_blank" rel="noopener">https://arxiv.org/abs/1902.00313</a></p><p>数据及项目网站：<a href="http://vrr-vg.com/" target="_blank" rel="noopener">http://vrr-vg.com/</a></p><p>作者：Yuanzhi Liang, Yalong Bai, Wei Zhang, Xueming Qian, Li Zhu, Tao Mei</p><hr><h1 id="背景-Background-和动机-Motivation"><a href="#背景-Background-和动机-Motivation" class="headerlink" title="背景(Background)和动机(Motivation)"></a>背景(Background)和动机(Motivation)</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/2.webp" alt=""></p><p>在计算机视觉的研究中，感知任务（如分类、检测、分割等）旨在准确表示单个物体对象信息；认知任务（如看图说话、问答系统等）旨在深入理解整体场景的语义信息。而从单个物体对象到整体场景，视觉关系表征两个物体之间的交互，连接多个物体构成整体场景。关系数据可以作为物体感知任务和语义认知任务之间的桥梁和纽带，具有很高的研究价值。 </p><p>考虑到关系数据在语义上的这种纽带的作用，对象关系数据应当有效的推进计算机视觉方法对于场景语义理解上的能力。构建从单物体感知，到关系语义理解，到整体场景认知，由微观到宏观，由局部到整体的层次化的视觉理解能力。 </p><p>但现有关系数据中，由于大量先验偏置信息的存在，导致关系数据的特征并不能有效的利用在语义理解中。其中，位置关系如“on”, “at”等将关系的推理退化为对象检测任务，而单一固定的关系，如“wear”，“has”等，由于数据中主体客体组合搭配固定，此类关系将关系推理退化为简单演绎推理。</p><p>因此这些关系数据的大量存在，导致关系特征的学习更多倾向于对单物体感知，而非真正的对场景语义的理解，从而无法使关系数据发挥的作用。同时，这种语义上的、学习上的先验偏置，无法通过常规的基于频率或规则的方法筛选剔除，这导致上述数据端的问题阻碍了关系语义理解上的发展与研究，使得视觉对象关系的研究与语义理解的目标渐行渐远。 </p><p><strong>本文首先提出视觉相关假设和视觉相关关系判别网络来构建具有更高语义价值的数据集。</strong>我们认为，许多关系数据不需要理解图像，仅仅通过单物体感知上的标签信息（如 bounding box, class）就可以推断的是关系学习中应避免的，即非视觉相关关系。而在关系数据中，对于视觉相关关系的学习与理解，将逼迫网络通过图像上的视觉信息，推理得到关系语义信息，而不是依赖基于单物体感知的能力，拟合先验偏置的标签。 </p><p>在我们的方法中，我们设计了一个<strong>视觉相关判别网络</strong>，通过网络自主的学习，分辨那些仅通过一些标签信息即可推断的非视觉相关关系，从而保证数据中留存的都是具有高语义价值的视觉相关关系。此外，我们设计了一个<strong>考虑关系的联合训练方法</strong>，有效的学习关系标签的信息。</p><p>在实验中，我们从两个方面验证了我们的想法。关系表征学习中，在场景图生成任务上，我们的视觉相关关系有效的拉大了学习型方法与非学习型方法之间的性能差距，由此证明了非视觉关系是关系数据中的先验偏置且通过简单方法即可推断。另一方面，通过学习视觉相关关系，我们得到的特征具有更好的语义表达与理解能力。该特征也在问答系统、看图说话中展现出更好的性能，由此证明了视觉相关关系是真正需要被学习，且更有利于提升语义理解能力。</p><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/3.webp" alt=""></p><hr><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-视觉相关判别网络（VD-Net）"><a href="#1-视觉相关判别网络（VD-Net）" class="headerlink" title="1.视觉相关判别网络（VD-Net）"></a>1.视觉相关判别网络（VD-Net）</h2><p>提出的 VD-Net 用于分辨对象关系是否视觉相关。网络仅需要物体对象的位置信息 bounding box 和类别信息 class，并将两种信息做编码输入，而不考虑图像信息。具体输入如下。 </p><p>位置编码：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/12.webp" alt=""></p><p>其中含有物体中心点、宽高、位置关系信息、尺寸信息等。 </p><p>针对类别信息，我们使用类别标签的 glove 特征向量作为输入。网络设置如下：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/4.webp" alt=""><br>为了避免过拟合，网络设计需要尽可能的小。网络包含 4 个全连接层，其中, , 分别是主体、客体的位置编码及二者联合位置编码。, 分别是主体、客体对象的类别词向量。</p><p>通过 VD-Net 网络的学习，可以发现现有的数据集中，关系预测具有很高的准确率，在 VG150 中，37% 的标签在 VD-Net 中有至少 50% 的准确率。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/5.webp" alt=""></p><h2 id="2-考虑关系信息的联合特征学习"><a href="#2-考虑关系信息的联合特征学习" class="headerlink" title="2.考虑关系信息的联合特征学习"></a>2.考虑关系信息的联合特征学习</h2><p>我们提出的方法如下：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/6.webp" alt=""><br>其中，我们使用 Faster-RCNN 用于特征提取，f(I) 取自于 RPN 部分。网络综合的学习位置、类别、属性和关系信息。通过对象关系的信息，进一步拓展特征的语义表征能力。</p><hr><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="1-场景图生成实验"><a href="#1-场景图生成实验" class="headerlink" title="1.场景图生成实验"></a>1.场景图生成实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/7.webp" alt=""></p><p>Freqency-Baseline 是非学习型方法，基于对数据的统计。在我们的实验中，VrR-VG 明显的拉开了非学习方法与可学习方法之间的性能差距。更加凸显出场景图生成任务中，各个方法的真实性能。同时，实验也说明非视觉相关的关系比较容易。相对来说，在含有大量非视觉关系的情况下，网络学习到的内容和基于统计的非学习型方法直接推断的内容差距有限。</p><h2 id="2-问答系统实验"><a href="#2-问答系统实验" class="headerlink" title="2.问答系统实验"></a>2.问答系统实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/8.webp" alt=""><br>在问答系统实验中，通过学习视觉相关关系，特征具有更好的性能，在指标上有明显的提升。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/9.webp" alt=""><br>在具体的案例分析上，通过学习视觉相关关系，特征能够提供更多的语义信息。一些通过单物体信息无法正确回答的问题，在我们的方法下有明显的效果。</p><h2 id="3-看图说话实验"><a href="#3-看图说话实验" class="headerlink" title="3.看图说话实验"></a>3.看图说话实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/10.webp" alt=""><br>在看图说话的任务中，通过学习视觉相关关系，任务的性能也有提升。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/11.webp" alt=""><br>通过对生成的句子案例分析，我们可以发现，我们的方法给出了一些具有鲜明语义关系的句子。有时句子整体会有更加鲜活的表达，内涵更加丰富的交互信息。</p><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>在对象关系的学习与应用中，我们需要关注视觉相关关系的学习。现有关系数据不能有效的利用在语义相关的任务中，其主要问题是在数据侧而非方法侧。为了使对象关系应该在语义理解上有更广泛深入的引用，需要首先明晰那些关系需要学习。在解决什么需要学的前提下，才能在如何学习的方法侧走的更远。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Reaserch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> Paper Reading </tag>
+            
+            <tag> CV </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度学习 Debug 技巧</title>
       <link href="/posts/600197bc.html"/>
       <url>/posts/600197bc.html</url>
@@ -329,11 +358,11 @@
       
         <tags>
             
+            <tag> Hexo </tag>
+            
             <tag> 博客 </tag>
             
             <tag> 二级目录 </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
@@ -541,7 +570,7 @@
       <link href="/posts/ca189e3a.html"/>
       <url>/posts/ca189e3a.html</url>
       
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+WK3970oznqVuzXgFOnI6M3HBABWRwdBLwC2m+SPmWyksunejajlei79ZvOmf5oMqaXYsE1aLuX2APgoWPXppQcTbgm4yKL6iMSaFd9G0nEMSZrVe02NdW/B8tkA9ycZ+UAnm/QV5bOa+zPvYOZ6Bvr+LHuCdYZ6mGvDMx+URSaHMVOfdYwQrUHVQhjvq0KKQfHMJRLoDftsakfa8TXpmjT5jUFRzQZcwdXhDjb02dy7dmeOapHJSUYGgoNCUcVGQlE4d45E37F7epN9O34pW2+fr96RC7TZ+GUfRq5IJA6hVrllhooHbfi1HJ0f6xRWz7j+VL5ndkUarjfGZuqFiaxkf6ry7uqq9iUOrYg5FlVRzOHGYn0s/X3EPTMGjirePa1nj3qLFqEcp0ANeGkKhwyoKPXqrT8ZikOzNhFTx2zj/YRNOWBlaO</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+aLk2PNOWps6weqpR20qgdGhQlJH11zdBs4C7+nXlD8N36gYQ954/5kkOqEXgtCz8JylfLaI92sBaijZDM0m4X6epvPKhqh1iewtVc512P6S/dcgeLs9CCoveCG73h79gLsX6yQrtXU2oOouUR+QtuEkCh/gYD/QX2px5YCuFIvDYu66DlehvBXPEMG+iwFN4faq68on6mmJ50/9cbObKMAIKfwYC7KMUqspMTheYxD1LMJZOQH5FYupTgqAvgdewQ7MByLu75V0+m6UssKiRcWQev4J7NqV95wFbm8PExui2B0+RFpiBydA5W8ifXYWhi8m8OBEiKMfa3pBiCeQCDDDuOP7m+skIxrN0pCl/cXy3qUdBuaAmTayl7SmcNxZxh/5nUnCI/fH3O+uyt1hW+fFA9P/XH7LjiH2pEWsE81hbbf+ebDZuk</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -580,11 +609,11 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Github </tag>
+            
+            <tag> 博客 </tag>
             
         </tags>
       
@@ -812,11 +841,11 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Github </tag>
+            
+            <tag> 博客 </tag>
             
             <tag> Tutorial </tag>
             
@@ -881,6 +910,17 @@
     
     
     <entry>
+      <title>archives</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -892,9 +932,9 @@
     
     
     <entry>
-      <title>archives</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
+      <title>friends</title>
+      <link href="/friends/index.html"/>
+      <url>/friends/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -919,17 +959,6 @@
       <url>/contact/index.html</url>
       
         <content type="html"><![CDATA[<h2 id="畅所欲言"><a href="#畅所欲言" class="headerlink" title="畅所欲言"></a>畅所欲言</h2><hr><p>在这里可以留下你的足迹，欢迎在下方留言，欢迎交换友链，一起交流学习！建议有Github账户的，在上面Gitalk评论框留言评论，我能第一时间看到，没有Github账号的在下面Valine评论框留言评论，方便其分类管理，感谢～</p><h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><hr><p>洪卫の友链信息</p><p>博客名称: 洪卫の博客</p><p>博客网址: <a href="https://sunhwee.com">https://sunhwee.com</a></p><p>博客头像: <a href="https://sunhwee.com/hwsun.jpg">https://sunhwee.com/hwsun.jpg</a></p><p>博客介绍: UESTC CVer！</p><h2 id="友情链接申请格式"><a href="#友情链接申请格式" class="headerlink" title="友情链接申请格式"></a>友情链接申请格式</h2><hr><p>博客名称: ( 网站名称 )</p><p>博客网址: ( 需带http或https )</p><p>博客头像: ( 需一张图片 没有的话也没事 )</p><p>博客介绍: ( 简介限定16个字,没有也没事 ) </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>friends</title>
-      <link href="/friends/index.html"/>
-      <url>/friends/index.html</url>
-      
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     
@@ -970,8 +999,8 @@
     
     <entry>
       <title>音乐</title>
-      <link href="/List/films/index.html"/>
-      <url>/List/films/index.html</url>
+      <link href="/List/books/index.html"/>
+      <url>/List/books/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -981,8 +1010,8 @@
     
     <entry>
       <title>音乐</title>
-      <link href="/List/books/index.html"/>
-      <url>/List/books/index.html</url>
+      <link href="/List/films/index.html"/>
+      <url>/List/films/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -994,17 +1023,6 @@
       <title>视频</title>
       <link href="/List/movies/index.html"/>
       <url>/List/movies/index.html</url>
-      
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/List/music/index.html"/>
-      <url>/List/music/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1035,9 +1053,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/%E8%B5%84%E6%BA%90/index.html"/>
-      <url>/categories/%E8%B5%84%E6%BA%90/index.html</url>
+      <title>音乐</title>
+      <link href="/List/music/index.html"/>
+      <url>/List/music/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1047,8 +1065,8 @@
     
     <entry>
       <title>categories</title>
-      <link href="/categories/%E8%BD%AC%E8%BD%BD/index.html"/>
-      <url>/categories/%E8%BD%AC%E8%BD%BD/index.html</url>
+      <link href="/categories/%E8%B5%84%E6%BA%90/index.html"/>
+      <url>/categories/%E8%B5%84%E6%BA%90/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1068,22 +1086,22 @@
     
     
     <entry>
-      <title>private</title>
-      <link href="/galleries/private/index.html"/>
-      <url>/galleries/private/index.html</url>
+      <title>categories</title>
+      <link href="/categories/%E8%BD%AC%E8%BD%BD/index.html"/>
+      <url>/categories/%E8%BD%AC%E8%BD%BD/index.html</url>
       
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+fo3mJZ1fWFFxZZm2f6b/mpBNKpax6Nnk=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>背景图片1</title>
-      <link href="/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html"/>
-      <url>/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html</url>
+      <title>private</title>
+      <link href="/galleries/private/index.html"/>
+      <url>/galleries/private/index.html</url>
       
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX19ZdA9aZiyI9OTc/8To99zOlXU7RRmXGbg=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1/CDQaywpScuiConTUYhM2MiCTnmKYOons=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     
@@ -1095,6 +1113,17 @@
       <url>/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%872/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>背景图片1</title>
+      <link href="/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html"/>
+      <url>/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html</url>
+      
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1/MI1gVL7S7OCNJzCg8suriK6Dk3D8sBh4=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     

@@ -4,10 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading, UESTC CV DeepLearning MachineLearning 洪卫 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="keywords" content="ICCV 2019 | VrR-VG：聚焦视觉相关关系, UESTC CV DeepLearning MachineLearning 洪卫 sunhw Hongwei 计算机视觉 深度学习">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="前言这篇论文CARAFE: Content-Aware ReAssembly of FEatures被 ICCV 2019 接收为 oral presentation。它致力于解决一些通用模块和算子的问题。上采样操作是各种网络结构里广泛使用">
+    <meta name="description" content="
+本笔记原文转载于PaperWeekly
+
+前言
+本文提出视觉相关的对象关系在语义理解上有更高的价值。在视觉关系学习表达中，我们需要关注于视觉相关关系，而避免对于视觉无关的信息学习。由于现有数据中存在大量的非视觉的先验信息，方法上很容易学到">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading | 洪卫の博客</title>
+    <title>ICCV 2019 | VrR-VG：聚焦视觉相关关系 | 洪卫の博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -740,13 +744,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading
+                        ICCV 2019 | VrR-VG：聚焦视觉相关关系
                     </div>
                 </div>
             </div>
@@ -889,14 +893,9 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-25
+                    2019-11-25
                 </div>
 
-                
-                    <div class="post-date info-break-policy">
-                        <i class="fa fa-calendar-minus-o fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2019-10-29
-                    </div>
                 
 
                 <div class="post-author info-break-policy">
@@ -910,14 +909,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>字数:&nbsp;&nbsp;
-                        1.8k
+                        2.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>时长:&nbsp;&nbsp;
-                        6 分钟
+                        7 分钟
                     </div>
                     
                 
@@ -934,57 +933,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇论文<a href="https://arxiv.org/abs/1905.02188" target="_blank" rel="noopener">CARAFE: Content-Aware ReAssembly of FEatures</a>被 ICCV 2019 接收为 oral presentation。它致力于解决一些通用模块和算子的问题。<code>上采样操作</code>是各种网络结构里广泛使用的运算之一，这篇文章提出了一个轻量级的通用上采样算子 <code>CARAFE</code>（音[kə’ræf]），相对最近邻和双线性等上采样算子，在不同任务中都取得了显著的提升，同时只引入很少的参数量和计算代价。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/1.png" alt=""></h2><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p><code>上采样操作</code>可以表示为每个位置的上采样核和输入特征图中对应邻域的像素做点积，我们称之为<code>特征重组</code>。论文提出的上采样操作 CARAFE 在重组时可以有<code>较大的感受野</code>，会根据输入<code>特征语义信息</code>来指导重组过程，同时整个算子比较<code>轻量级</code>。具体来说，文章首先利用输入特征图来<strong>预测</strong>上采样核，<strong>每个位置的上采样核是不同的</strong>，然后基于预测的上采样核来进行特征重组。在不同的任务中，CARAFE 都取得了明显的提升，同时仅带来很小的额外参数和计算量。</p>
-<p>上采样的表示</p>
-<p>将特征图的上采样运算看做是特征重组的过程。对于输出特征图中的每个像素点 L’，我们都可以找到它在输入特征图中的对应位置 L，L’ 这个点的值可以表示成以输入特征图中以 L 为中心的一个邻域内的像素和一个上采样核的点积（加权和）。以双线性上采样为例，输出特征图中每个像素可以看作是一个 2x2 的上采样核和输入特征图中一个 2x2 的邻域的点积。在下图中，上采样核的 4 个数值均为 0.5。</p>
-<p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/2.gif" alt=""></p>
-<pre class="line-numbers language-yml"><code class="language-yml">value 是输入的特征图： 
-     将这个特征图进行上采样，格式是[n,h,w,c]，n是你这一个batch的图片数量， 
-     h和w是特征图的宽和高，c是特征图的数量；
-
-filter是卷积核的大小： 
-       四维的[h,w,in_channel,out_channel]，h和w是卷积核的大小， 
-       in_channel是输入特征图的数量，out_channel是输出特征图的数量。
-
-output_shape： 是要上采样得到的特征图的大小，格式与value一致。
-
-strides是步长： 四维格式，分别对应value四个维度的步长。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <blockquote>
+<p>本笔记原文转载于PaperWeekly</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/1.webp" alt=""></p>
+<p>本文提出视觉相关的对象关系在语义理解上有更高的价值。在视觉关系学习表达中，我们需要关注于视觉相关关系，而避免对于视觉无关的信息学习。由于现有数据中存在大量的非视觉的先验信息，方法上很容易学到简单的位置关系或单一固定关系，而不具备进一步推测学习语义信息的能力。从而导致现有关系数据的表征并不能明显提升语义相关任务性能。</p>
+<p>而本文提出明确了视觉关系学习中什么是值得学习的，什么是需要学习的。并且通过实验，也验证了所提出的视觉相关关系数据可以有效的提升特征的语义理解能力。</p>
+<p>论文地址：<a href="https://arxiv.org/abs/1902.00313" target="_blank" rel="noopener">https://arxiv.org/abs/1902.00313</a></p>
+<p>数据及项目网站：<a href="http://vrr-vg.com/" target="_blank" rel="noopener">http://vrr-vg.com/</a></p>
+<p>作者：Yuanzhi Liang, Yalong Bai, Wei Zhang, Xueming Qian, Li Zhu, Tao Mei</p>
 <hr>
-<h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>最近邻或者双线性上采样: 仅通过<code>像素点的空间位置</code>来决定上采样核，并没有利用到特征图的语义信息，可以看作是一种“均匀”的上采样，而且<code>感知域</code>通常都很小（最近邻 1x1，双线性 2x2）。<br>Deconvolution(反卷积)算子的上采样核:  并不是通过像素间的距离计算，而是通过网络学出来的，但对于特征图每个位置都是应用相同的上采样核，不能捕捉到特征图内容的信息，另外引入了大量参数和计算量，尤其是当上采样核尺寸较大的时候。<br>Dynamic filter:  对于特征图每个位置都会预测一组不同的上采样核，但是参数量和计算量更加爆炸，而且公认比较难学习。</p>
-<p>那么本文所希望的上采样算子应该具备以下几个特性:</p>
-<ul>
-<li>Large receptive field：需要具有较大的感受野，这样才能更好地利用周围的信息。</li>
-<li>Content-aware：上采样核应该和特征图的语义信息相关，基于输入内容进行上采样。</li>
-<li>Lightweight：不能引入过多的参数和计算量，需要保持轻量化。</li>
-</ul>
-<h1 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/3.png" alt=""><br>CARAFE 分为两个主要模块，分别是<strong>上采样核预测模块</strong>和<strong>特征重组模块</strong>。假设上采样倍率为 [公式] ，给定一个形状为 [公式] 的输入特征图，首先利用上采样核预测模块预测上采样核，然后利用特征重组模块完成上采样，得到形状为 [公式] 的输出特征图。</p>
-<h2 id="上采样核预测模块"><a href="#上采样核预测模块" class="headerlink" title="上采样核预测模块"></a>上采样核预测模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blpinog_files/img/Paper-Reading-2/4.png" alt=""></p>
-<ol>
-<li>特征图通道压缩</li>
-</ol>
-<p>对于形状为 [公式] 的输入特征图，我们首先用一个 [公式] 卷积将它的通道数压缩到 [公式] ，这一步的主要目的是减小后续步骤的计算量。</p>
-<ol start="2">
-<li>内容编码及上采样核预测</li>
-</ol>
-<p>假设上采样核尺寸为 [公式] （越大的上采样核意味着更大的感受野和更大的计算量），如果我们希望对输出特征图的每个位置使用不同的上采样核，那么我们需要预测的上采样核形状为 [公式] 。</p>
-<p>对于第一步中压缩后的输入特征图，我们利用一个 [公式] 的卷积层来预测上采样核，输入通道数为 [公式] ，输出通道数为 [公式] ，然后我们将通道维在空间维展开，得到形状为 [公式] 的上采样核。</p>
-<ol start="3">
-<li>上采样核归一化</li>
-</ol>
-<p>对第二步中得到的上采样核利用 softmax 进行归一化，使得卷积核权重和为 1。</p>
-<h2 id="特征重组模块"><a href="#特征重组模块" class="headerlink" title="特征重组模块"></a>特征重组模块</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/5.png" alt=""><br>对于输出特征图中的每个位置，我们将其映射回输入特征图，取出以之为中心的 [公式] 的区域，和预测出的该点的上采样核作点积，得到输出值。相同位置的不同通道共享同一个上采样核。</p>
-<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><p>论文将 FPN 中的上采样操作替换成 CARAFE，并可视化上采样的区域和权重。对于高层特征图中不同的点，我们展示在 CARAFE 多次上采样后的采样核权重较大的点，可以看到采样点会集中在物体区域而忽略背景区域，达到 content-aware 的效果。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/6.png" alt=""><br>以 Faster R-CNN w/ FPN 为例，本文对比了 CARAFE 和其他上采样算子的性能以及参数量和计算量。在性能明显优于其他算子的情况下，CARAFE 保持了轻量级的特性，参数量和计算量都较小。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/8.png" alt=""></p>
-<p>同事本文将 CARAFE 应用于不同的任务中，例如物体检测，语义分割，image inpainting ，都取得了不错的效果。</p>
-<h2 id="物体检测"><a href="#物体检测" class="headerlink" title="物体检测"></a>物体检测</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/9.png" alt=""><br>在物体检测任务上，对于 Faster R-CNN 和 Mask R-CNN，CARAFE 都取得了一个点以上的提升。</p>
-<h2 id="语义分割"><a href="#语义分割" class="headerlink" title="语义分割"></a>语义分割</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/7.png" alt=""><br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/10.png" alt=""><br>在语义分割任务中，我们将 UperNet（为啥用 UperNet，因为有好用的开源 code 啊）作为 baseline，用 CARAFE 替换其中的上采样操作，取得了显著的提升。</p>
-<h2 id="Image-inpainting"><a href="#Image-inpainting" class="headerlink" title="Image inpainting"></a>Image inpainting</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-2/11.png" alt=""><br>我们也尝试把 CARAFE 应用在 low-level 任务比如 image inpainting 中，同样取得了较大的提升，刷新了 SOTA。</p>
-<h2 id="etc"><a href="#etc" class="headerlink" title="etc."></a>etc.</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章提出的轻量级通用上采样算子:</p>
-<ul>
-<li>Large receptive field</li>
-<li>Content-aware</li>
-<li>Lightweight</li>
-</ul>
+<h1 id="背景-Background-和动机-Motivation"><a href="#背景-Background-和动机-Motivation" class="headerlink" title="背景(Background)和动机(Motivation)"></a>背景(Background)和动机(Motivation)</h1><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/2.webp" alt=""></p>
+<p>在计算机视觉的研究中，感知任务（如分类、检测、分割等）旨在准确表示单个物体对象信息；认知任务（如看图说话、问答系统等）旨在深入理解整体场景的语义信息。而从单个物体对象到整体场景，视觉关系表征两个物体之间的交互，连接多个物体构成整体场景。关系数据可以作为物体感知任务和语义认知任务之间的桥梁和纽带，具有很高的研究价值。 </p>
+<p>考虑到关系数据在语义上的这种纽带的作用，对象关系数据应当有效的推进计算机视觉方法对于场景语义理解上的能力。构建从单物体感知，到关系语义理解，到整体场景认知，由微观到宏观，由局部到整体的层次化的视觉理解能力。 </p>
+<p>但现有关系数据中，由于大量先验偏置信息的存在，导致关系数据的特征并不能有效的利用在语义理解中。其中，位置关系如“on”, “at”等将关系的推理退化为对象检测任务，而单一固定的关系，如“wear”，“has”等，由于数据中主体客体组合搭配固定，此类关系将关系推理退化为简单演绎推理。</p>
+<p>因此这些关系数据的大量存在，导致关系特征的学习更多倾向于对单物体感知，而非真正的对场景语义的理解，从而无法使关系数据发挥的作用。同时，这种语义上的、学习上的先验偏置，无法通过常规的基于频率或规则的方法筛选剔除，这导致上述数据端的问题阻碍了关系语义理解上的发展与研究，使得视觉对象关系的研究与语义理解的目标渐行渐远。 </p>
+<p><strong>本文首先提出视觉相关假设和视觉相关关系判别网络来构建具有更高语义价值的数据集。</strong>我们认为，许多关系数据不需要理解图像，仅仅通过单物体感知上的标签信息（如 bounding box, class）就可以推断的是关系学习中应避免的，即非视觉相关关系。而在关系数据中，对于视觉相关关系的学习与理解，将逼迫网络通过图像上的视觉信息，推理得到关系语义信息，而不是依赖基于单物体感知的能力，拟合先验偏置的标签。 </p>
+<p>在我们的方法中，我们设计了一个<strong>视觉相关判别网络</strong>，通过网络自主的学习，分辨那些仅通过一些标签信息即可推断的非视觉相关关系，从而保证数据中留存的都是具有高语义价值的视觉相关关系。此外，我们设计了一个<strong>考虑关系的联合训练方法</strong>，有效的学习关系标签的信息。</p>
+<p>在实验中，我们从两个方面验证了我们的想法。关系表征学习中，在场景图生成任务上，我们的视觉相关关系有效的拉大了学习型方法与非学习型方法之间的性能差距，由此证明了非视觉关系是关系数据中的先验偏置且通过简单方法即可推断。另一方面，通过学习视觉相关关系，我们得到的特征具有更好的语义表达与理解能力。该特征也在问答系统、看图说话中展现出更好的性能，由此证明了视觉相关关系是真正需要被学习，且更有利于提升语义理解能力。</p>
+<p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/3.webp" alt=""></p>
+<hr>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-视觉相关判别网络（VD-Net）"><a href="#1-视觉相关判别网络（VD-Net）" class="headerlink" title="1.视觉相关判别网络（VD-Net）"></a>1.视觉相关判别网络（VD-Net）</h2><p>提出的 VD-Net 用于分辨对象关系是否视觉相关。网络仅需要物体对象的位置信息 bounding box 和类别信息 class，并将两种信息做编码输入，而不考虑图像信息。具体输入如下。 </p>
+<p>位置编码：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/12.webp" alt=""></p>
+<p>其中含有物体中心点、宽高、位置关系信息、尺寸信息等。 </p>
+<p>针对类别信息，我们使用类别标签的 glove 特征向量作为输入。网络设置如下：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/4.webp" alt=""><br>为了避免过拟合，网络设计需要尽可能的小。网络包含 4 个全连接层，其中, , 分别是主体、客体的位置编码及二者联合位置编码。, 分别是主体、客体对象的类别词向量。</p>
+<p>通过 VD-Net 网络的学习，可以发现现有的数据集中，关系预测具有很高的准确率，在 VG150 中，37% 的标签在 VD-Net 中有至少 50% 的准确率。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/5.webp" alt=""></p>
+<h2 id="2-考虑关系信息的联合特征学习"><a href="#2-考虑关系信息的联合特征学习" class="headerlink" title="2.考虑关系信息的联合特征学习"></a>2.考虑关系信息的联合特征学习</h2><p>我们提出的方法如下：<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/6.webp" alt=""><br>其中，我们使用 Faster-RCNN 用于特征提取，f(I) 取自于 RPN 部分。网络综合的学习位置、类别、属性和关系信息。通过对象关系的信息，进一步拓展特征的语义表征能力。</p>
+<hr>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="1-场景图生成实验"><a href="#1-场景图生成实验" class="headerlink" title="1.场景图生成实验"></a>1.场景图生成实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/7.webp" alt=""></p>
+<p>Freqency-Baseline 是非学习型方法，基于对数据的统计。在我们的实验中，VrR-VG 明显的拉开了非学习方法与可学习方法之间的性能差距。更加凸显出场景图生成任务中，各个方法的真实性能。同时，实验也说明非视觉相关的关系比较容易。相对来说，在含有大量非视觉关系的情况下，网络学习到的内容和基于统计的非学习型方法直接推断的内容差距有限。</p>
+<h2 id="2-问答系统实验"><a href="#2-问答系统实验" class="headerlink" title="2.问答系统实验"></a>2.问答系统实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/8.webp" alt=""><br>在问答系统实验中，通过学习视觉相关关系，特征具有更好的性能，在指标上有明显的提升。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/9.webp" alt=""><br>在具体的案例分析上，通过学习视觉相关关系，特征能够提供更多的语义信息。一些通过单物体信息无法正确回答的问题，在我们的方法下有明显的效果。</p>
+<h2 id="3-看图说话实验"><a href="#3-看图说话实验" class="headerlink" title="3.看图说话实验"></a>3.看图说话实验</h2><p><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/10.webp" alt=""><br>在看图说话的任务中，通过学习视觉相关关系，任务的性能也有提升。<br><img src="https://raw.githubusercontent.com/shw2018/cdn/master/blog_files/img/Paper-Reading-4/11.webp" alt=""><br>通过对生成的句子案例分析，我们可以发现，我们的方法给出了一些具有鲜明语义关系的句子。有时句子整体会有更加鲜活的表达，内涵更加丰富的交互信息。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>在对象关系的学习与应用中，我们需要关注视觉相关关系的学习。现有关系数据不能有效的利用在语义相关的任务中，其主要问题是在数据侧而非方法侧。为了使对象关系应该在语义理解上有更广泛深入的引用，需要首先明晰那些关系需要学习。在解决什么需要学的前提下，才能在如何学习的方法侧走的更远。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1154,7 +1134,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sunhwee.com/posts/87c85644.html">https://sunhwee.com/posts/87c85644.html</a>
+                    <a href="https://sunhwee.com/posts/c6520b04.html">https://sunhwee.com/posts/c6520b04.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1195,7 +1175,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                     </span>
                     <a href="https://sunhwee.com" class="b-link-green">洪卫の博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/posts/87c85644.html" class="b-link-green">CARAFE-Content-Aware ReAssembly of FEatures ----Paper Reading</a>
+                    <a href="/posts/c6520b04.html" class="b-link-green">ICCV 2019 | VrR-VG：聚焦视觉相关关系</a>
                 </p>
             </div> -->
             <div class="tag_share" style="display: block;">
@@ -1265,7 +1245,7 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: 'posts/87c85644.html',
+        id: 'posts/c6520b04.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1585,55 +1565,60 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/b8c41141.html">
+                <a href="/posts/c6520b04.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="计算机视觉研究生建议">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ICCV 2019 | VrR-VG：聚焦视觉相关关系">
                         
-                        <span class="card-title">计算机视觉研究生建议</span>
+                        <span class="card-title">ICCV 2019 | VrR-VG：聚焦视觉相关关系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            听听前辈们的建议在知乎看到几个回答还不错  这里记录一下  留作后面不断查看回顾
-一. 如何做好科研（1）无他，唯手熟尔，就是多读多写。论文就是越读越快的，我还是本科生的时候我导师告诉我刚入门时候要精读十篇好文章，我现在指导师弟师妹也是给他
+                            
+本笔记原文转载于PaperWeekly
+
+前言
+本文提出视觉相关的对象关系在语义理解上有更高的价值。在视觉关系学习表达中，我们需要关注于视觉相关关系，而避免对于视觉无关的信息学习。由于现有数据中存在大量的非视觉的先验信息，方法上很容易学到
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Research/" class="post-category" target="_blank">
-                                    Research
+                            <a href="/categories/Reaserch/" class="post-category" target="_blank">
+                                    Reaserch
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/深度学习/" target="_blank">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/Paper-Reading/" target="_blank">
+                        <span class="chip bg-color">Paper Reading</span>
+                    </a>
+                    
                     <a href="/tags/CV/" target="_blank">
                         <span class="chip bg-color">CV</span>
-                    </a>
-                    
-                    <a href="/tags/Research/" target="_blank">
-                        <span class="chip bg-color">Research</span>
-                    </a>
-                    
-                    <a href="/tags/advice/" target="_blank">
-                        <span class="chip bg-color">advice</span>
                     </a>
                     
                 </div>
@@ -1647,31 +1632,33 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6e2d0838.html">
+                <a href="/posts/600197bc.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="oh-my-zsh 配置">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="深度学习 Debug 技巧">
                         
-                        <span class="card-title">oh-my-zsh 配置</span>
+                        <span class="card-title">深度学习 Debug 技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Oh-My-Zsh的配置与使用什么是Shell？相对于内核来说，Shell是Linux/Unix的一个外壳，它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干
+                            前言本笔记是对 keynote“Troubleshooting Deep Neural Networks”的总结。
+keynote来源：
+http://josh-tobin.com/troubleshooting-deep-neural-n
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Ubuntu/" class="post-category" target="_blank">
-                                    Ubuntu
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                    深度学习
                                 </a>
                             
                             
@@ -1681,12 +1668,16 @@ strides是步长： 四维格式，分别对应value四个维度的步长。 <sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ubuntu/" target="_blank">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/Deep-Learning/" target="_blank">
+                        <span class="chip bg-color">Deep Learning</span>
                     </a>
                     
-                    <a href="/tags/zsh/" target="_blank">
-                        <span class="chip bg-color">zsh</span>
+                    <a href="/tags/Debug/" target="_blank">
+                        <span class="chip bg-color">Debug</span>
+                    </a>
+                    
+                    <a href="/tags/深度学习/" target="_blank">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                 </div>

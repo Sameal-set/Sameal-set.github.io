@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-11-27T14:17:26.711Z</updated>
+  <updated>2019-11-27T15:50:50.258Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -17,44 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ICCV 2019 | VrR-VG：聚焦视觉相关关系</title>
-    <link href="https://sunhwee.com/posts/c6520b04.html"/>
-    <id>https://sunhwee.com/posts/c6520b04.html</id>
-    <published>2019-11-27T14:35:36.000Z</published>
-    <updated>2019-11-27T14:17:26.711Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;本笔记原文转载于PaperWeekly&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="openday" scheme="https://sunhwee.com/categories/openday/"/>
-    
-    
-      <category term="tencent" scheme="https://sunhwee.com/tags/tencent/"/>
-    
-      <category term="openday" scheme="https://sunhwee.com/tags/openday/"/>
-    
-      <category term="信通学院" scheme="https://sunhwee.com/tags/%E4%BF%A1%E9%80%9A%E5%AD%A6%E9%99%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机视觉研究生建议</title>
+    <title>腾讯 Openday 活动记录</title>
     <link href="https://sunhwee.com/posts/b8c41141.html"/>
     <id>https://sunhwee.com/posts/b8c41141.html</id>
     <published>2019-11-27T14:35:36.000Z</published>
-    <updated>2019-11-27T15:25:14.139Z</updated>
+    <updated>2019-11-27T15:50:50.258Z</updated>
     
     <summary type="html">
     
@@ -79,6 +46,39 @@
       <category term="Tencent" scheme="https://sunhwee.com/tags/Tencent/"/>
     
       <category term="Openday" scheme="https://sunhwee.com/tags/Openday/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ICCV 2019 | VrR-VG：聚焦视觉相关关系</title>
+    <link href="https://sunhwee.com/posts/c6520b04.html"/>
+    <id>https://sunhwee.com/posts/c6520b04.html</id>
+    <published>2019-11-26T14:35:36.000Z</published>
+    <updated>2019-11-27T15:54:13.161Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本笔记原文转载于PaperWeekly&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Reaserch" scheme="https://sunhwee.com/categories/Reaserch/"/>
+    
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Paper Reading" scheme="https://sunhwee.com/tags/Paper-Reading/"/>
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
     
   </entry>
   

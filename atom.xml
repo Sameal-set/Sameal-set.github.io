@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-11-25T08:37:30.484Z</updated>
+  <updated>2019-11-27T14:17:26.711Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>ICCV 2019 | VrR-VG：聚焦视觉相关关系</title>
     <link href="https://sunhwee.com/posts/c6520b04.html"/>
     <id>https://sunhwee.com/posts/c6520b04.html</id>
-    <published>2019-11-25T14:35:36.000Z</published>
-    <updated>2019-11-25T08:37:30.484Z</updated>
+    <published>2019-11-27T14:35:36.000Z</published>
+    <updated>2019-11-27T14:17:26.711Z</updated>
     
     <summary type="html">
     
@@ -38,14 +38,47 @@
     
     </summary>
     
-      <category term="Reaserch" scheme="https://sunhwee.com/categories/Reaserch/"/>
+      <category term="openday" scheme="https://sunhwee.com/categories/openday/"/>
     
     
-      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="tencent" scheme="https://sunhwee.com/tags/tencent/"/>
     
-      <category term="Paper Reading" scheme="https://sunhwee.com/tags/Paper-Reading/"/>
+      <category term="openday" scheme="https://sunhwee.com/tags/openday/"/>
     
-      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+      <category term="信通学院" scheme="https://sunhwee.com/tags/%E4%BF%A1%E9%80%9A%E5%AD%A6%E9%99%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉研究生建议</title>
+    <link href="https://sunhwee.com/posts/b8c41141.html"/>
+    <id>https://sunhwee.com/posts/b8c41141.html</id>
+    <published>2019-11-27T14:35:36.000Z</published>
+    <updated>2019-11-27T15:25:14.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;记录一次腾讯 Openday 参观记录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;2019 年 11 月 27
+        
+      
+    
+    </summary>
+    
+      <category term="Openday" scheme="https://sunhwee.com/categories/Openday/"/>
+    
+    
+      <category term="信通学院" scheme="https://sunhwee.com/tags/%E4%BF%A1%E9%80%9A%E5%AD%A6%E9%99%A2/"/>
+    
+      <category term="Tencent" scheme="https://sunhwee.com/tags/Tencent/"/>
+    
+      <category term="Openday" scheme="https://sunhwee.com/tags/Openday/"/>
     
   </entry>
   
@@ -134,37 +167,6 @@
       <category term="Tensorflow" scheme="https://sunhwee.com/tags/Tensorflow/"/>
     
       <category term="deeplearning" scheme="https://sunhwee.com/tags/deeplearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机视觉研究生建议</title>
-    <link href="https://sunhwee.com/posts/b8c41141.html"/>
-    <id>https://sunhwee.com/posts/b8c41141.html</id>
-    <published>2019-10-31T14:35:36.000Z</published>
-    <updated>2019-11-17T13:55:05.284Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;听听前辈们的建议&quot;&gt;&lt;a href=&quot;#听听前辈们的建议&quot; class=&quot;headerlink&quot; title=&quot;听听前辈们的建议&quot;&gt;&lt;/a&gt;听听前辈们的建议&lt;/h1&gt;&lt;p&gt;在知乎看到几个回答还不错  这里记录一下  留作后面不断查看回顾&lt;/p&gt;
-&lt;h1
-        
-      
-    
-    </summary>
-    
-      <category term="Research" scheme="https://sunhwee.com/categories/Research/"/>
-    
-    
-      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
-    
-      <category term="Research" scheme="https://sunhwee.com/tags/Research/"/>
-    
-      <category term="advice" scheme="https://sunhwee.com/tags/advice/"/>
     
   </entry>
   
@@ -394,11 +396,11 @@
       <category term="网站优化" scheme="https://sunhwee.com/categories/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/"/>
     
     
-      <category term="Hexo" scheme="https://sunhwee.com/tags/Hexo/"/>
-    
       <category term="博客" scheme="https://sunhwee.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="二级目录" scheme="https://sunhwee.com/tags/%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95/"/>
+    
+      <category term="Hexo" scheme="https://sunhwee.com/tags/Hexo/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-11-28T10:13:21.691Z</updated>
+  <updated>2019-12-09T14:17:16.440Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>研究生新手刚开始应该怎么看英文文献？</title>
+    <link href="https://sunhwee.com/posts/14089fc4.html"/>
+    <id>https://sunhwee.com/posts/14089fc4.html</id>
+    <published>2019-12-09T14:35:36.000Z</published>
+    <updated>2019-12-09T14:17:16.440Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文原文转载于知乎，感觉总结得不错。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Reaserch" scheme="https://sunhwee.com/categories/Reaserch/"/>
+    
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Paper Reading" scheme="https://sunhwee.com/tags/Paper-Reading/"/>
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+    
+  </entry>
+  
+  <entry>
     <title>腾讯 Openday 活动记录</title>
     <link href="https://sunhwee.com/posts/a59b3dc2.html"/>
     <id>https://sunhwee.com/posts/a59b3dc2.html</id>
     <published>2019-11-27T12:35:36.000Z</published>
-    <updated>2019-11-28T10:13:21.691Z</updated>
+    <updated>2019-11-28T10:13:49.846Z</updated>
     
     <summary type="html">
     
@@ -106,9 +139,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="Debug" scheme="https://sunhwee.com/tags/Debug/"/>
-    
       <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Debug" scheme="https://sunhwee.com/tags/Debug/"/>
     
   </entry>
   
@@ -368,9 +401,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Conda" scheme="https://sunhwee.com/tags/Conda/"/>
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -576,34 +609,6 @@
       <category term="QQ" scheme="https://sunhwee.com/tags/QQ/"/>
     
       <category term="Wechat" scheme="https://sunhwee.com/tags/Wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微言微语</title>
-    <link href="https://sunhwee.com/posts/31c4451.html"/>
-    <id>https://sunhwee.com/posts/31c4451.html</id>
-    <published>2019-09-03T04:37:47.000Z</published>
-    <updated>2019-10-19T15:05:12.828Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;稻盛和夫&quot;&gt;&lt;a href=&quot;#稻盛和夫&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="微言微语" scheme="https://sunhwee.com/categories/%E5%BE%AE%E8%A8%80%E5%BE%AE%E8%AF%AD/"/>
-    
-    
-      <category term="微言" scheme="https://sunhwee.com/tags/%E5%BE%AE%E8%A8%80/"/>
-    
-      <category term="whisper" scheme="https://sunhwee.com/tags/whisper/"/>
     
   </entry>
   

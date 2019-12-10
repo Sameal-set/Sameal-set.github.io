@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunhwee.com/"/>
-  <updated>2019-12-09T14:17:16.440Z</updated>
+  <updated>2019-12-10T09:42:47.691Z</updated>
   <id>https://sunhwee.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GAN生成对抗网络Tutorial</title>
+    <link href="https://sunhwee.com/posts/de58ab60.html"/>
+    <id>https://sunhwee.com/posts/de58ab60.html</id>
+    <published>2019-12-10T14:35:36.000Z</published>
+    <updated>2019-12-10T09:42:47.691Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文转载于博客园，感觉写得比较清晰，保存一下供以后查看。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;GAN生成式对抗网络（一）——原理&quot;&gt;&lt;a href=&quot;#GAN生成式对抗网络（一）——原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Reaserch" scheme="https://sunhwee.com/categories/Reaserch/"/>
+    
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="CV" scheme="https://sunhwee.com/tags/CV/"/>
+    
+      <category term="GAN" scheme="https://sunhwee.com/tags/GAN/"/>
+    
+  </entry>
+  
+  <entry>
     <title>研究生新手刚开始应该怎么看英文文献？</title>
     <link href="https://sunhwee.com/posts/14089fc4.html"/>
     <id>https://sunhwee.com/posts/14089fc4.html</id>
     <published>2019-12-09T14:35:36.000Z</published>
-    <updated>2019-12-09T14:17:16.440Z</updated>
+    <updated>2019-12-09T14:36:04.022Z</updated>
     
     <summary type="html">
     
@@ -139,9 +172,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Debug" scheme="https://sunhwee.com/tags/Debug/"/>
+    
+      <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -401,9 +434,9 @@
     
       <category term="Deep Learning" scheme="https://sunhwee.com/tags/Deep-Learning/"/>
     
-      <category term="Conda" scheme="https://sunhwee.com/tags/Conda/"/>
-    
       <category term="深度学习" scheme="https://sunhwee.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Conda" scheme="https://sunhwee.com/tags/Conda/"/>
     
   </entry>
   
@@ -579,36 +612,6 @@
       <category term="脚本" scheme="https://sunhwee.com/tags/%E8%84%9A%E6%9C%AC/"/>
     
       <category term="Script" scheme="https://sunhwee.com/tags/Script/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 安装 QQ/微信/TIM 等软件</title>
-    <link href="https://sunhwee.com/posts/48a5af98.html"/>
-    <id>https://sunhwee.com/posts/48a5af98.html</id>
-    <published>2019-09-09T13:44:44.000Z</published>
-    <updated>2019-10-19T15:05:12.828Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Ubuntu安装deepin-wine-QQ&quot;&gt;&lt;a href=&quot;#Ubuntu安装deepin-wine-QQ&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="软件推荐" scheme="https://sunhwee.com/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
-    
-    
-      <category term="Ubuntu" scheme="https://sunhwee.com/tags/Ubuntu/"/>
-    
-      <category term="QQ" scheme="https://sunhwee.com/tags/QQ/"/>
-    
-      <category term="Wechat" scheme="https://sunhwee.com/tags/Wechat/"/>
     
   </entry>
   

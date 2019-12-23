@@ -896,7 +896,7 @@ WPS Office 2019
                 
                     <div class="post-date info-break-policy">
                         <i class="fa fa-calendar-minus-o fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2019-11-15
+                        2019-12-22
                     </div>
                 
 
@@ -911,14 +911,14 @@ WPS Office 2019
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>字数:&nbsp;&nbsp;
-                        3.1k
+                        3.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>时长:&nbsp;&nbsp;
-                        14 分钟
+                        16 分钟
                     </div>
                     
                 
@@ -1066,6 +1066,10 @@ https://github.com/askme765cs/Wine-QQ-TIM</code></pre><ol start="11">
 <li>Place status indicator</li>
 </ol>
 <p><code>位置</code>信息, 快速导航磁盘文件位置</p>
+<ol start="5">
+<li>Clipboard Indicator</li>
+</ol>
+<p>这个扩展是使用来收集粘贴板的，对于写文档或者敲代码的人来说经常要复制少量文本粘贴到其余地方。但是系统只能复制一次，复制下一次的时候上次复制的内容就不见了。有了它以后可以保存复制过的内容，下次可以直接用。</p>
 <h1 id="四-ubuntu系统重新分区、根目录扩容"><a href="#四-ubuntu系统重新分区、根目录扩容" class="headerlink" title="四 ubuntu系统重新分区、根目录扩容"></a>四 ubuntu系统重新分区、根目录扩容</h1><p>gparted是一款免费、开源的Linux下的具有图形用户界面的分区软件。</p>
 <p>在Ubuntu中，可以使用如下命令安装：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gparted<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1367,7 +1371,7 @@ linux-generic-hwe-18.04-edge 已经是最新版 <span class="token punctuation">
 <h3 id="2-编译后Pdf中文不显示问题"><a href="#2-编译后Pdf中文不显示问题" class="headerlink" title="2.编译后Pdf中文不显示问题"></a>2.编译后Pdf中文不显示问题</h3><p>当使用 CJK 中文包时，在 Texstudio 配置中使用 pdflatex 编译器而不是 xelatex 编译器。</p>
 <p>如果使用ctex中文包时可以使用 xelatex 编译器。</p>
 <hr>
-<h1 id="Ubuntu16-04下安装-FFmpeg"><a href="#Ubuntu16-04下安装-FFmpeg" class="headerlink" title="Ubuntu16.04下安装 FFmpeg"></a>Ubuntu16.04下安装 FFmpeg</h1><p>在百度上看到许多安装过程特别麻烦的，还要手动下载安装。其实只需要三条命令。</p>
+<h1 id="Ubuntu18-04下安装-FFmpeg"><a href="#Ubuntu18-04下安装-FFmpeg" class="headerlink" title="Ubuntu18.04下安装 FFmpeg"></a>Ubuntu18.04下安装 FFmpeg</h1><p>在百度上看到许多安装过程特别麻烦的，还要手动下载安装。其实只需要三条命令。</p>
 <p>第一步：添加源</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> add-apt-repository ppa:djcj/hybrid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>第二步：更新源</p>
@@ -1376,6 +1380,66 @@ linux-generic-hwe-18.04-edge 已经是最新版 <span class="token punctuation">
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ffmpeg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如上，就安装好了。</p>
 <hr>
+<h1 id="Ubuntu18-04-下安装-Matlab"><a href="#Ubuntu18-04-下安装-Matlab" class="headerlink" title="Ubuntu18.04 下安装 Matlab"></a>Ubuntu18.04 下安装 Matlab</h1><p>按照教程安装好 Matlab 后，暂时是没有应用快捷方式的，我们需要手动创建一个：</p>
+<p>首先第一步：输入命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"> <span class="token function">sudo</span> gedit /usr/share/applications/Matlab.desktop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后输入：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
+Type<span class="token operator">=</span>Application
+Name<span class="token operator">=</span>Matlab 2019b
+GenericName<span class="token operator">=</span>Matlab R2019b
+Exec<span class="token operator">=</span>sh /home/shw/MySoftwares/Matlab/R2019b/bin/matlab <span class="token comment" spellcheck="true">#   /home/shw/MySoftwares/Matlab/R2019b 是你的安装目录，我这里安装目录不是默认的 默认的应该是/usr/local/XX/XX</span>
+Icon<span class="token operator">=</span>/home/shw/MySoftwares/Matlab/R2019b/toolbox/shared/dastudio/resources/MatlabIcon.png
+Terminal<span class="token operator">=</span>true
+Categories<span class="token operator">=</span>Development<span class="token punctuation">;</span>Matlab<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>注意：Exec代表应用程序的位置；Icon代表应用程序图标的位置；Terminal为false表示启动时不启动命令行窗口，为true表示启动命令行窗口。</p>
+</blockquote>
+<h1 id="Conky安装和配置"><a href="#Conky安装和配置" class="headerlink" title="Conky安装和配置"></a>Conky安装和配置</h1><p>conky-all是支持lua的版本带有复杂的动画的需要用这个版本实现<br>安装命令:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> conky-all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>主题参考 <a href="https://github.com/popindavibe/conky-grapes" target="_blank" rel="noopener">github地址</a></p>
+<p>在自己的住目录下新建一个conky文件夹<em>（可以自己修改文件放置的位置要更改conky_tpl和create_config.py反正就呢么多文件里的conky/conky-grapes都要改成.conky/conky-grapes)</em></p>
+<p>双击安装那几个字体</p>
+<p>字体用的是灰色的不喜欢可以编辑</p>
+<p>create-config.py文件</p>
+<p>修改grey和lightgrey就行</p>
+<p>执行python create-config.py</p>
+<p>蒋多出来的 XXXX.conkyrc</p>
+<p>文件改名为.conkyrc 剪切或复制到你的主目录下</p>
+<p>图形配色如图</p>
+<p>不喜欢蓝色的可以更改.conkyrc和conky/conky-grapes文件夹下的ring-v2.tpl和rings-v2_gen.lua文件里的所有蓝色查找替换为你喜欢的颜色</p>
+<p>蓝色 0x165cc4</p>
+<p>在终端中执行conky就行了（可能绘制图形较慢，等一会。）</p>
+<p>conky开机自启动</p>
+<p>在主目录下的.config/autostart执行以下代码</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> gedit conky.desktop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>粘贴以下代码：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
+Type<span class="token operator">=</span>Application
+Name<span class="token operator">=</span>Conky
+Comment<span class="token operator">=</span>Start conky script
+Exec<span class="token operator">=</span>\s/usr/bin/conky -p 10
+OnlyShowIn<span class="token operator">=</span>GNOME
+X-GNOME-Autostart-Phase<span class="token operator">=</span>Application
+Name<span class="token punctuation">[</span>en_US<span class="token punctuation">]</span><span class="token operator">=</span>conky.desktop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者在软件</p>
+<blockquote>
+<p>解释：\s/usr/bin/conky -p 10 是用户登录后十秒开启防止一些奇怪的bug</p>
+</blockquote>
+<h1 id="nvtop-安装和配置"><a href="#nvtop-安装和配置" class="headerlink" title="nvtop 安装和配置"></a>nvtop 安装和配置</h1><p>1.安装依赖：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">apt <span class="token function">install</span> cmake libncurses5-dev libncursesw5-dev <span class="token function">git</span> -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2.安装命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/Syllo/nvtop.git
+<span class="token function">mkdir</span> -p nvtop/build <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> nvtop/build
+cmake <span class="token punctuation">..</span>
+
+cmake <span class="token punctuation">..</span> -DNVML_RETRIEVE_HEADER_ONLINE<span class="token operator">=</span>True
+
+<span class="token function">sudo</span> <span class="token function">make</span>
+
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3.安装完成测试</p>
+<pre class="line-numbers language-bash"><code class="language-bash">nvtop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2274,7 +2338,7 @@ linux-generic-hwe-18.04-edge 已经是最新版 <span class="token punctuation">
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">75.1k</span> 字
+                <span class="white-color">75.7k</span> 字
             
 
             

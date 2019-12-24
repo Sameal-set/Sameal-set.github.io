@@ -628,7 +628,7 @@
       <link href="/posts/ca189e3a.html"/>
       <url>/posts/ca189e3a.html</url>
       
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX19JDE43bgEF0ZgX6du0PTb1DXKdLCs1UkyUSj659AdCvKzS5soQqoPThv7CI6qa3ssY19X0tYJQogIF5OhPXx9elt3E0dOLlotfNkP9ZjR8PWKOj1u6U/Zj89EU6XhBOQvEZJBEO0sxQMJtzqo1FpQ18RiqMh6+IvdGdJmT9FETY6JPsuHS6/jzRPgy5IoRoo5RPfK4ZVcwOWx4vbbUmN1ERd1/Ep37vheWNaeL/ObrBrdYiasq9eCz7/UytazfOuStpBEMHNOaeVxGg8sqcba01W0m1W7dm6swm8Rh/lCEDxdxxzdFtV6FNIplQVVsePnoY6cRSdhG2x32LunKob3pvaxf/CIQZW+JwRtYgo9jYFSH1kxkZTtvvOAahFbhYtdAgHVpk/L3fNbFDYnfe2AWzAi7vHHYNEMjg5sR23TxwFn2Xp+6bP2v</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+1tvloyGMh1KcqiGk6kJ9eMAAULpl06tPtLptvcf9pu4RkrPZOqwF6Tpyp8oWBsptM6RwssqJdei17aRhEXBRNrUt1y7NHWfaxe3o52Iumlz9yvKJS/aJqmO1HxEh9nYVgaNXZIBPcQuratu1HRgYtMb3uE38EEcpb6BTWgpozMBOhojZ5RyM0ydnNfkRYFP4VHai40L489ruE21vuO422divsmpJrGX4zm4QHY+J9C/po1SbKSCMDi2uQFqEymb0+1QEB7NPcHWNHbYhqK/rKcnZbNP2VX45JBn1cL98mC7oZOX72SbOLPZ03Bim0wiuAa0x/cX61bqDxb6YQozMnBlyPBHCEm54W45HV1k9rb0HNuSYXdlPfZBTmPb3QFcTjZh0qpbxdu0yM4TglLKEOkcpc50x9oUJ8HNkx4zii4U7qDPWw9eI5</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -979,9 +979,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>archives</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -990,9 +990,9 @@
     
     
     <entry>
-      <title>archives</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1012,9 +1012,9 @@
     
     
     <entry>
-      <title>相册</title>
-      <link href="/galleries/index.html"/>
-      <url>/galleries/index.html</url>
+      <title>friends</title>
+      <link href="/friends/index.html"/>
+      <url>/friends/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1023,9 +1023,9 @@
     
     
     <entry>
-      <title>friends</title>
-      <link href="/friends/index.html"/>
-      <url>/friends/index.html</url>
+      <title>相册</title>
+      <link href="/galleries/index.html"/>
+      <url>/galleries/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1057,8 +1057,8 @@
     
     <entry>
       <title>音乐</title>
-      <link href="/List/films/index.html"/>
-      <url>/List/films/index.html</url>
+      <link href="/List/books/index.html"/>
+      <url>/List/books/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1068,8 +1068,8 @@
     
     <entry>
       <title>音乐</title>
-      <link href="/List/books/index.html"/>
-      <url>/List/books/index.html</url>
+      <link href="/List/films/index.html"/>
+      <url>/List/films/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -1155,22 +1155,11 @@
     
     
     <entry>
-      <title>private</title>
-      <link href="/galleries/private/index.html"/>
-      <url>/galleries/private/index.html</url>
-      
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1/L8fPHsIowgTo35oNp5/KiFV5JrCVvbBk=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>背景图片1</title>
       <link href="/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html"/>
       <url>/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%871/index.html</url>
       
-        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1/OKF2fwLvTpZzO2piUMRolz0VYx44uAQ0=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX186PavFv8gYKzIf7poZ6PwZFVhVZ1edNsw=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     
@@ -1182,6 +1171,17 @@
       <url>/galleries/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%872/index.html</url>
       
         <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>private</title>
+      <link href="/galleries/private/index.html"/>
+      <url>/galleries/private/index.html</url>
+      
+        <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="点击此处输入正确密码即可阅读本篇文章~">    <label for="pass">点击此处输入正确密码即可阅读本篇文章~</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX19wvAE2z5x62EgppFy8vxg99PjXyq9axr4=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
     </entry>
     
